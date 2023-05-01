@@ -14,7 +14,7 @@ const cssLoaders = (extra) => {
 };
 
 const baseConfig = {
-  entry: path.resolve(__dirname, './src/index.ts'),
+  entry: path.resolve(__dirname, './src/index.tsx'),
   mode: 'development',
   module: {
     rules: [
@@ -27,9 +27,9 @@ const baseConfig = {
         use: cssLoaders('sass-loader'),
       },
       {
-        test: /\.ts$/,
-        use: 'ts-loader',
+        test: /\.(ts|js)x?$/,
         exclude: /node-modules/,
+        loader: 'babel-loader',
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -38,7 +38,7 @@ const baseConfig = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.ts'],
+    extensions: ['.js', '.ts', '.tsx'],
   },
   output: {
     filename: 'index.js',
@@ -51,7 +51,7 @@ const baseConfig = {
       filename: 'index.html',
     }),
     new CleanWebpackPlugin(),
-    new EslintPlugin({ extensions: 'ts' }),
+    new EslintPlugin({ extensions: 'tsx' }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),

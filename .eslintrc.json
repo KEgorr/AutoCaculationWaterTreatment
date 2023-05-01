@@ -1,12 +1,13 @@
 {
-  "plugins": ["prettier", "import", "@typescript-eslint"],
+  "plugins": ["prettier", "import", "@typescript-eslint", "react-hooks"],
   "extends": [
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "airbnb-base",
-    "airbnb-typescript/base"
+    "airbnb-typescript/base",
+    "plugin:react/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -30,14 +31,25 @@
         "ImportDeclaration": "never"
       }
     ],
-    "@typescript-eslint/comma-dangle": "off"
+    "@typescript-eslint/comma-dangle": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off"
   },
   "ignorePatterns": ["*config.js"],
   "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
     "import/resolver": {
-      "node": {
-        "extensions": [".js", ".ts"]
+      "typescript": {
+        "project": "./tsconfig.json"
       }
+    },
+    "react": {
+      "pragma": "React",
+      "version": "detect"
     }
   }
 }
