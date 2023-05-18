@@ -1,13 +1,13 @@
 {
   "plugins": ["prettier", "import", "@typescript-eslint", "react-hooks"],
   "extends": [
-    "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "airbnb-base",
     "airbnb-typescript/base",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -26,12 +26,13 @@
     "class-methods-use-this": "off",
     "@typescript-eslint/no-explicit-any": 2,
     "object-curly-newline": [
-      "error",
+      "off",
       {
-        "ImportDeclaration": "never"
+        "ImportDeclaration": { "multiline": true, "minProperties": 2 }
       }
     ],
     "@typescript-eslint/comma-dangle": "off",
+    "@typescript-eslint/indent": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/prop-types": "off",

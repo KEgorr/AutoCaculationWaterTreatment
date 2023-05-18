@@ -32,7 +32,7 @@ const baseConfig = {
         loader: 'babel-loader',
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
         type: 'asset/resource',
       },
     ],
@@ -60,7 +60,9 @@ const baseConfig = {
 
 module.exports = ({ mode }) => {
   const isProductionMode = mode === 'prod';
-  const envConfig = isProductionMode ? require('./webpack.prod.config') : require('./webpack.dev.config');
+  const envConfig = isProductionMode
+    ? require('./webpack.prod.config')
+    : require('./webpack.dev.config');
 
   return merge(baseConfig, envConfig);
 };
