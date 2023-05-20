@@ -5,11 +5,12 @@
   width: max-content;
 }
 
-.input-block {
+.input-block label {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 40px;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
 .dimension {
@@ -18,5 +19,6 @@
 }
 
 .input-block__text {
-  width: 200px;
+  width: 500px;
+  line-height: 150%;
 }

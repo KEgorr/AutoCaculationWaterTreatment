@@ -13,6 +13,8 @@ export default function BoilerRow({
       <td className="boilers-table__td">{boilerData.performance.value}</td>
       <td className="boilers-table__td">{boilerData.pressure.value}</td>
       <td className="boilers-table__td">{boilerData.numberOfBoilers.value}</td>
+      <td className="boilers-table__td">{boilerData.boilerType.value}</td>
+      <td className="boilers-table__td">{boilerData.separationType.value}</td>
     </tr>
   );
 }

@@ -74,6 +74,10 @@ export default function BoilersTable({
                   </th>
                   <th className="boilers-table__th">Рабочее давление, бар</th>
                   <th className="boilers-table__th">Количество котлов, шт</th>
+                  <th className="boilers-table__th">Тип котла</th>
+                  <th className="boilers-table__th">
+                    Тип сепарационного устройства
+                  </th>
                 </tr>
               </thead>
               <tbody className="boilers-table__tbody">

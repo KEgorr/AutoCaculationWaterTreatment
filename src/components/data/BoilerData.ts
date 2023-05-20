@@ -5,6 +5,8 @@ class BoilerData {
   performance?: number;
   numberOfBoilers?: number;
   pressure?: number;
+  boilerType?: string;
+  separationType?: string;
 
   setBoilerData(boilerData: IBoilerData) {
     Object.keys(boilerData).forEach((key) => {
@@ -21,10 +23,17 @@ class BoilerData {
         case 'pressure':
           this.pressure = Number(boilerData[key].value);
           break;
+        case 'boilerType':
+          this.boilerType = boilerData[key].value;
+          break;
+        case 'separationType':
+          this.separationType = boilerData[key].value;
+          break;
         default:
           console.log(key);
       }
     });
+    console.log(this);
   }
 }
 

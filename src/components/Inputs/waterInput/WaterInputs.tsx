@@ -7,6 +7,7 @@ export default function WaterInputs({
 }: InputWaterDataProps) {
   return (
     <div className="water-input">
+      <h2 className="water-input__subtitle">Общие характеристики воды</h2>
       <ul className="input-fields">
         {waterData.map((el, index) => {
           if (index < 5) {

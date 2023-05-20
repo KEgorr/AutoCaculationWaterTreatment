@@ -16,18 +16,22 @@ function WaterUsualInput({ waterData, update, className }: InputProps) {
 
   return (
     <li className="input-block">
-      <span className="input-block__text">
-        {waterData.name}
-        {waterData.sub && <sub>{waterData.sub}</sub>}
-        {waterData.sup && <sup>{waterData.sup}</sup>}
-      </span>
-      <input
-        type="text"
-        className={className}
-        value={value}
-        onChange={inputChange}
-      />
-      <span className="input-block__text dimension">{waterData.dimension}</span>
+      <label>
+        <span className="input-block__text">
+          {waterData.name}
+          {waterData.sub && <sub>{waterData.sub}</sub>}
+          {waterData.sup && <sup>{waterData.sup}</sup>}
+        </span>
+        <input
+          type="text"
+          className={className}
+          value={value}
+          onChange={inputChange}
+        />
+        <span className="input-block__text dimension">
+          {waterData.dimension}
+        </span>
+      </label>
     </li>
   );
 }

@@ -37,4 +37,6 @@ export interface InputBoilerDataProps {
   name: string;
   dimension?: string;
   className: string;
+  type?: string;
+  checkedValue?: string;
 }

@@ -3,7 +3,9 @@ import { IBoilerData, isBoilerDataValue } from '../../../types/data-types';
 import { IAddBoilerProps } from '../../../types/props-types';
 import {
   boilerDataInitial,
+  boilerTypes,
   inputBoilerInit,
+  separationTypes,
 } from '../data/input-boiler-data-initial';
 import validation from '../tools/number-validation';
 import InputBoilerData from './InputBoilerData';
@@ -19,9 +21,13 @@ export default function AddBoiler(addBoilerProps: IAddBoilerProps) {
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const key = e.target.name;
-
     if (key in boilerData) {
-      if (key !== 'name' && !validation(e)) {
+      if (
+        key !== 'name' &&
+        key !== 'boilerType' &&
+        key !== 'separationType' &&
+        !validation(e)
+      ) {
         return;
       }
       setBoilerData((prev) => ({
@@ -63,6 +69,7 @@ export default function AddBoiler(addBoilerProps: IAddBoilerProps) {
 
   return (
     <div className="add-boiler-block">
+      <h2 className="water-input__subtitle">Основные характеристики котла</h2>
       <ul className="input-fields">
         {inputBoilerInit.map((input) => {
           const key = input.name;
@@ -88,6 +95,36 @@ export default function AddBoiler(addBoilerProps: IAddBoilerProps) {
           }
           return null;
         })}
+      </ul>
+      <ul className="input-fields">
+        <h2 className="water-input__subtitle">Тип котла</h2>
+        {boilerTypes.map((type) => (
+          <InputBoilerData
+            key={type.id}
+            type="radio"
+            className="radio-button"
+            title={type.tittle}
+            value={type.tittle}
+            name="boilerType"
+            onChange={handleChange}
+            checkedValue={boilerData.boilerType.value}
+          />
+        ))}
+      </ul>
+      <ul className="input-fields">
+        <h2 className="water-input__subtitle">Тип сепарационного устройства</h2>
+        {separationTypes.map((type) => (
+          <InputBoilerData
+            key={type.id}
+            type="radio"
+            className="radio-button"
+            title={type.tittle}
+            value={type.tittle}
+            name="separationType"
+            onChange={handleChange}
+            checkedValue={boilerData.separationType.value}
+          />
+        ))}
       </ul>
       <button className="common-button" onClick={onDataChange}>
         {!chosenBoiler ? 'Добавить котел' : 'Сохранить'}

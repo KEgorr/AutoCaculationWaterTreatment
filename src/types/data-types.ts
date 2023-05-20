@@ -17,6 +17,8 @@ export interface IBoilerData extends IObjectKeys {
   performance: IBoilerDataValue;
   numberOfBoilers: IBoilerDataValue;
   pressure: IBoilerDataValue;
+  boilerType: IBoilerDataValue;
+  separationType: IBoilerDataValue;
 }
 
 export interface IWaterData extends IObjectKeys {
