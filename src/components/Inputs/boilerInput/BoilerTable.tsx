@@ -60,63 +60,68 @@ export default function BoilersTable({
   return (
     <>
       {!isAdding ? (
-        <div>
-          <table>
-            {!boilers?.length ? (
-              <thead>
-                <tr>
-                  <th>Необходимо добавить котел</th>
+        <div className="boilers-table-block">
+          {!boilers?.length ? (
+            <p className="add-boiler-massage">Необходимо добавить котел</p>
+          ) : (
+            <table className="boilers-table">
+              <thead className="boilers-table__thead">
+                <tr className="boilers-table__tr">
+                  <th className="boilers-table__th">№</th>
+                  <th className="boilers-table__th">Наименование котла</th>
+                  <th className="boilers-table__th">
+                    Производительность, т/час
+                  </th>
+                  <th className="boilers-table__th">Рабочее давление, бар</th>
+                  <th className="boilers-table__th">Количество котлов, шт</th>
                 </tr>
               </thead>
-            ) : (
+              <tbody className="boilers-table__tbody">
+                {boilers.map((boiler, i) => (
+                  <BoilerRow
+                    key={boiler.id}
+                    boilerData={boiler}
+                    boilerNumber={i + 1}
+                    onChoseBoiler={handleChoseBoiler}
+                    chosenBoilerClass={
+                      boiler.id === chosenBoiler?.id
+                        ? 'boiler boiler_selected'
+                        : 'boiler'
+                    }
+                  />
+                ))}
+              </tbody>
+            </table>
+          )}
+          <div className="boilers-table-block__buttons">
+            <button
+              className="common-button"
+              onClick={() => {
+                setAdding(true);
+                removeBoiler();
+              }}
+            >
+              Добавить котел
+            </button>
+            {boilers?.length && (
               <>
-                <thead>
-                  <tr>
-                    <th>№</th>
-                    <th>Наименование котла</th>
-                    <th>Производительность, т/час</th>
-                    <th>Рабочее давление, бар</th>
-                    <th>Количество котлов, шт</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {boilers.map((boiler, i) => (
-                    <BoilerRow
-                      key={boiler.id}
-                      boilerData={boiler}
-                      boilerNumber={i + 1}
-                      onChoseBoiler={handleChoseBoiler}
-                      chosenBoilerClass={
-                        boiler.id === chosenBoiler?.id
-                          ? 'boiler boiler__selected'
-                          : 'boiler'
-                      }
-                    />
-                  ))}
-                </tbody>
+                <button
+                  className="common-button"
+                  disabled={chosenBoiler === undefined}
+                  onClick={() => setAdding(true)}
+                >
+                  Изменить котел
+                </button>
+                <button
+                  className="common-button"
+                  disabled={chosenBoiler === undefined}
+                  onClick={() => handleDeleteBoiler(chosenBoiler)}
+                >
+                  Удалить котел
+                </button>
               </>
             )}
-          </table>
-          <button
-            onClick={() => {
-              setAdding(true);
-              removeBoiler();
-            }}
-          >
-            Добавить котел
-          </button>
-          <button
-            disabled={chosenBoiler === undefined}
-            onClick={() => setAdding(true)}
-          >
-            Изменить котел
-          </button>
-          <button
-            disabled={chosenBoiler === undefined}
-            onClick={() => handleDeleteBoiler(chosenBoiler)}
-          >
-            Удалить котел
-          </button>
+          </div>
         </div>
       ) : (
         <AddBoiler

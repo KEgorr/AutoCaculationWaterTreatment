@@ -8,11 +8,11 @@ export default function BoilerRow({
 }: IBoilerRowProps) {
   return (
     <tr onClick={() => onChoseBoiler(boilerData)} className={chosenBoilerClass}>
-      <td>{boilerNumber}</td>
-      <td>{boilerData.name.value}</td>
-      <td>{boilerData.performance.value}</td>
-      <td>{boilerData.pressure.value}</td>
-      <td>{boilerData.numberOfBoilers.value}</td>
+      <td className="boilers-table__td">{boilerNumber}</td>
+      <td className="boilers-table__td">{boilerData.name.value}</td>
+      <td className="boilers-table__td">{boilerData.performance.value}</td>
+      <td className="boilers-table__td">{boilerData.pressure.value}</td>
+      <td className="boilers-table__td">{boilerData.numberOfBoilers.value}</td>
     </tr>
   );
 }

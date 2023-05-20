@@ -15,8 +15,8 @@ function WaterUsualInput({ waterData, update, className }: InputProps) {
   }
 
   return (
-    <li>
-      <span>
+    <li className="input-block">
+      <span className="input-block__text">
         {waterData.name}
         {waterData.sub && <sub>{waterData.sub}</sub>}
         {waterData.sup && <sup>{waterData.sup}</sup>}
@@ -27,7 +27,7 @@ function WaterUsualInput({ waterData, update, className }: InputProps) {
         value={value}
         onChange={inputChange}
       />
-      <span>{waterData.dimension}</span>
+      <span className="input-block__text dimension">{waterData.dimension}</span>
     </li>
   );
 }

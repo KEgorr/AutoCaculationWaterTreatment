@@ -1,0 +1,27 @@
+.input-block__text {
+  color: $text_color;
+  font-size: 1.2rem;
+}
+
+.input-block__field {
+  border: none;
+  outline: none;
+  width: 150px;
+  height: 25px;
+  border-radius: 0.3rem;
+  background-color: $input-background_color;
+  &:focus {
+    border: 1.5px solid $selected_color;
+  }
+}
+
+.input-block__field_invalid {
+  border: 2px solid $error_color;
+}
+
+.water-input__subtitle {
+  color: $text_color;
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+  margin: 0.5rem 0;
+}

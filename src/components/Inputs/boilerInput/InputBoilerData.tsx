@@ -5,15 +5,18 @@ export default function InputBoilerData(
 ) {
   const { title, value, name, dimension, className } = inputBoilerDataProps;
   return (
-    <li>
-      <span>{title}</span>
+    <li className="input-block">
+      <span className="input-block__text">{title}</span>
       <input
         className={className}
         value={value}
         onChange={(e) => inputBoilerDataProps.onChange(e)}
         name={name}
       />
-      {dimension && <span>{dimension}</span>}
+
+      <span className="input-block__text dimension">
+        {dimension && dimension}
+      </span>
     </li>
   );
 }

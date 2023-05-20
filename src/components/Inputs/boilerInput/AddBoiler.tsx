@@ -62,28 +62,34 @@ export default function AddBoiler(addBoilerProps: IAddBoilerProps) {
   }
 
   return (
-    <div>
-      {inputBoilerInit.map((input) => {
-        const key = input.name;
-        if (key in boilerData) {
-          const valueObj = boilerData[key];
-          if (isBoilerDataValue(valueObj)) {
-            return (
-              <InputBoilerData
-                key={input.id}
-                className={valueObj.isValid ? 'normal' : 'red'}
-                title={input.title}
-                value={valueObj.value}
-                name={input.name}
-                dimension={input.dimension}
-                onChange={handleChange}
-              />
-            );
+    <div className="add-boiler-block">
+      <ul className="input-fields">
+        {inputBoilerInit.map((input) => {
+          const key = input.name;
+          if (key in boilerData) {
+            const valueObj = boilerData[key];
+            if (isBoilerDataValue(valueObj)) {
+              return (
+                <InputBoilerData
+                  key={input.id}
+                  className={
+                    valueObj.isValid
+                      ? 'input-block__field'
+                      : 'input-block__field input-block__field_invalid'
+                  }
+                  title={input.title}
+                  value={valueObj.value}
+                  name={input.name}
+                  dimension={input.dimension}
+                  onChange={handleChange}
+                />
+              );
+            }
           }
-        }
-        return null;
-      })}
-      <button onClick={onDataChange}>
+          return null;
+        })}
+      </ul>
+      <button className="common-button" onClick={onDataChange}>
         {!chosenBoiler ? 'Добавить котел' : 'Сохранить'}
       </button>
     </div>

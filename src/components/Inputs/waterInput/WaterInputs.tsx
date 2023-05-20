@@ -6,14 +6,18 @@ export default function WaterInputs({
   update,
 }: InputWaterDataProps) {
   return (
-    <div>
-      <div>
+    <div className="water-input">
+      <ul className="input-fields">
         {waterData.map((el, index) => {
           if (index < 5) {
             return (
               <WaterUsualInput
                 key={el.id}
-                className={el.isValid ? 'normal' : 'red'}
+                className={
+                  el.isValid
+                    ? 'input-block__field'
+                    : 'input-block__field input-block__field_invalid'
+                }
                 waterData={el}
                 update={update}
               />
@@ -21,22 +25,26 @@ export default function WaterInputs({
           }
           return null;
         })}
-      </div>
-      <div>
-        <p>Содержание катионов и анионов в воде</p>
-        {waterData.map((el, index) => {
-          if (index > 5) {
-            return (
-              <WaterUsualInput
-                key={el.id}
-                className={'normal'}
-                waterData={el}
-                update={update}
-              />
-            );
-          }
-          return null;
-        })}
+      </ul>
+      <div className="water-input__subfields">
+        <h2 className="water-input__subtitle">
+          Содержание катионов и анионов в воде
+        </h2>
+        <ul className="input-fields">
+          {waterData.map((el, index) => {
+            if (index > 5) {
+              return (
+                <WaterUsualInput
+                  key={el.id}
+                  className={'input-block__field'}
+                  waterData={el}
+                  update={update}
+                />
+              );
+            }
+            return null;
+          })}
+        </ul>
       </div>
     </div>
   );

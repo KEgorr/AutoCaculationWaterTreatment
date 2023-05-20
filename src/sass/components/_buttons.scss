@@ -1,0 +1,27 @@
+.common-button {
+  margin-top: 1rem;
+  outline: none;
+  background-color: $selected_color;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.4rem;
+  color: $background_color;
+  cursor: pointer;
+  &:hover {
+    background-color: darken($color: $selected_color, $amount: 10);
+  }
+
+  &:active {
+    background-color: darken($color: $selected_color, $amount: 20);
+  }
+
+  &:disabled {
+    background-color: darken($color: $selected_color, $amount: 30);
+    cursor: not-allowed;
+  }
+}
+
+.main-button {
+  display: block;
+  margin: 2rem auto;
+}

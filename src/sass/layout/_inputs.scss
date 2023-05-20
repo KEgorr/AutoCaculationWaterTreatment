@@ -1,0 +1,22 @@
+.water-input {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  width: max-content;
+}
+
+.input-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+}
+
+.dimension {
+  width: 50px;
+  text-align: end;
+}
+
+.input-block__text {
+  width: 200px;
+}

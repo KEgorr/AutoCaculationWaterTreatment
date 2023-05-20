@@ -61,13 +61,19 @@ export default function MainInput() {
   return (
     <>
       <WaterInputs waterData={waterData} update={update} />
-      <button onClick={showInput}>click me</button>
       <BoilersTable
         onChangeBoiler={onChangeBoiler}
         removeBoiler={removeBoiler}
         chosenBoiler={chosenBoiler}
       />
-      {!isBoilerChecked && <p>Необходимо выбрать котел для расчета</p>}
+      <button className="common-button main-button" onClick={showInput}>
+        Выполнить расчет
+      </button>
+      {!isBoilerChecked && (
+        <p className="boiler-error-massage">
+          Необходимо выбрать котел для расчета
+        </p>
+      )}
     </>
   );
 }
