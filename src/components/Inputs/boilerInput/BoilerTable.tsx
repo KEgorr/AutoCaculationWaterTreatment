@@ -103,7 +103,7 @@ export default function BoilersTable({
             >
               Добавить котел
             </button>
-            {boilers?.length && (
+            {boilers?.length !== 0 && (
               <>
                 <button
                   className="common-button"
