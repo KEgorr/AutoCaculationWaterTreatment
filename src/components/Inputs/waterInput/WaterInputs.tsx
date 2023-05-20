@@ -32,7 +32,7 @@ export default function WaterInputs({
         </h2>
         <ul className="input-fields">
           {waterData.map((el, index) => {
-            if (index > 5) {
+            if (index >= 5) {
               return (
                 <WaterUsualInput
                   key={el.id}

@@ -1,3 +1,7 @@
+interface IObjectKeys {
+  [key: string]: IBoilerDataValue | number | string | boolean | undefined;
+}
+
 export interface IBoilerDataValue {
   value: string;
   isValid: boolean;
@@ -5,10 +9,6 @@ export interface IBoilerDataValue {
 
 export function isBoilerDataValue(obj: unknown): obj is IBoilerDataValue {
   return (obj as IBoilerDataValue).isValid !== undefined;
-}
-
-interface IObjectKeys {
-  [key: string]: IBoilerDataValue | number;
 }
 
 export interface IBoilerData extends IObjectKeys {
@@ -19,7 +19,7 @@ export interface IBoilerData extends IObjectKeys {
   pressure: IBoilerDataValue;
 }
 
-export interface IWaterData {
+export interface IWaterData extends IObjectKeys {
   id: number;
   name: string;
   value: string;

@@ -25,6 +25,11 @@
     "no-console": 0,
     "class-methods-use-this": "off",
     "@typescript-eslint/no-explicit-any": 2,
+    "@typescript-eslint/lines-between-class-members": [
+      "error",
+      "always",
+      { "exceptAfterSingleLine": true }
+    ],
     "object-curly-newline": [
       "off",
       {

@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { IBoilerData } from '../../types/data-types';
 import BoilersTable from './boilerInput/BoilerTable';
-import waterDataInitial from './data/usual-input-data';
+import waterDataInitial from './data/usual-input-data-initial';
 import WaterInputs from './waterInput/WaterInputs';
+import newWaterData from '../data/waterData';
+import boilerData from '../data/BoilerData';
 
 export default function MainInput() {
   const [waterData, setWaterData] = useState(waterDataInitial);
@@ -55,8 +57,10 @@ export default function MainInput() {
     if (!isAllSelected()) {
       return;
     }
-    console.log(waterData);
-    console.log(chosenBoiler);
+    newWaterData.setWaterData(waterData);
+    if (chosenBoiler) {
+      boilerData.setBoilerData(chosenBoiler);
+    }
   }
   return (
     <>
