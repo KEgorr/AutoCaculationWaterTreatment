@@ -103,7 +103,7 @@ export default function BoilersTable({
             >
               Добавить котел
             </button>
-            {boilers?.length !== 0 && (
+            {boilers?.length ? (
               <>
                 <button
                   className="common-button"
@@ -120,6 +120,8 @@ export default function BoilersTable({
                   Удалить котел
                 </button>
               </>
+            ) : (
+              <></>
             )}
           </div>
         </div>
