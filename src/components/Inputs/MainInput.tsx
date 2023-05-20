@@ -3,8 +3,8 @@ import { IBoilerData } from '../../types/data-types';
 import BoilersTable from './boilerInput/BoilerTable';
 import waterDataInitial from './data/usual-input-data-initial';
 import WaterInputs from './waterInput/WaterInputs';
-import newWaterData from '../data/waterData';
-import boilerData from '../data/BoilerData';
+import newWaterData from '../../modules/Basic data/WaterData';
+import boilerData from '../../modules/Basic data/BoilerData';
 
 export default function MainInput() {
   const [waterData, setWaterData] = useState(waterDataInitial);
