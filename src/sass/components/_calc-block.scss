@@ -1,0 +1,33 @@
+.calc-block-tittle {
+  background-color: $selected_color;
+  padding: 0.5rem;
+  user-select: none;
+  cursor: pointer;
+  border-radius: 0.8rem;
+}
+
+.calc-block-tittle__rounded {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.calc-block {
+  background-color: $input-background_color;
+  overflow: hidden;
+  max-height: 2000px;
+  transition: 0.5s;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.calc-block__content {
+  padding: 20px;
+}
+
+.block-hidden {
+  max-height: 0;
+}
+
+.test {
+  height: 1000px;
+}

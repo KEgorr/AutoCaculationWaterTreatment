@@ -6,7 +6,11 @@ import WaterInputs from './waterInput/WaterInputs';
 import newWaterData from '../../modules/Basic data/WaterData';
 import boilerData from '../../modules/Basic data/BoilerData';
 
-export default function MainInput() {
+interface IMainInputProps {
+  showCalculations: () => void;
+}
+
+export default function MainInput({ showCalculations }: IMainInputProps) {
   const [waterData, setWaterData] = useState(waterDataInitial);
   const [chosenBoiler, setChosenBoiler] = useState<IBoilerData>();
   const [isBoilerChecked, setBoilerChecked] = useState(true);
@@ -61,6 +65,7 @@ export default function MainInput() {
     if (chosenBoiler) {
       boilerData.setBoilerData(chosenBoiler);
     }
+    showCalculations();
   }
   return (
     <>

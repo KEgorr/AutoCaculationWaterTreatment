@@ -1,0 +1,18 @@
+.ionic-table {
+  border: 1px solid $background_color;
+  border-collapse: collapse;
+  th,
+  td {
+    font-size: 1rem;
+    text-align: end;
+    border: 1px solid $background_color;
+    padding: 5px;
+  }
+}
+
+.ionic-table__th {
+  font-size: 1rem;
+  text-align: end;
+  border: 1px solid $background_color;
+  padding: 5px;
+}
