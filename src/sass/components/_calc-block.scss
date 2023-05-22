@@ -16,12 +16,13 @@
   overflow: hidden;
   max-height: 2000px;
   transition: 0.5s;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
 .calc-block__content {
   padding: 20px;
+  line-height: 150%;
 }
 
 .block-hidden {
@@ -30,4 +31,12 @@
 
 .test {
   height: 1000px;
+}
+
+.calc-text_valid {
+  color: green;
+}
+
+.calc-text_invalid {
+  color: $error_color;
 }
