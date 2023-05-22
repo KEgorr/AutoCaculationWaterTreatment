@@ -1,3 +1,10 @@
+.main-calc-block {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  margin-bottom: 2rem;
+}
+
 .calc-block-tittle {
   background-color: $selected_color;
   padding: 0.5rem;
@@ -23,6 +30,16 @@
 .calc-block__content {
   padding: 20px;
   line-height: 150%;
+}
+
+.calc-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.calc-img-title {
+  text-align: center;
 }
 
 .block-hidden {
