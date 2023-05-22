@@ -40,39 +40,6 @@ export default function WaterTreatmentCalculation() {
     setHidden(true);
   }
 
-  function isBlowDownValid() {
-    if (pressure <= 13 && waterTreatmentCalculation.getBoilerBlowDown() <= 10) {
-      return true;
-    }
-    if (pressure <= 20 && waterTreatmentCalculation.getBoilerBlowDown() <= 7) {
-      return true;
-    }
-    if (waterTreatmentCalculation.getBoilerBlowDown() <= 5) {
-      return true;
-    }
-    return false;
-  }
-
-  function isRelativeAlkalinityValid() {
-    if (
-      pressure > 10 &&
-      waterTreatmentCalculation.getRelativeAlkalinity() > 20
-    ) {
-      return false;
-    }
-    return true;
-  }
-
-  function isDecompositionNa2CO3Valid() {
-    if (
-      waterTreatmentCalculation.getCarbonDioxideConcentration() < 20 ||
-      waterTreatmentCalculation.getCarbonDioxideConcentrationWithB() < 20
-    ) {
-      return true;
-    }
-    return false;
-  }
-
   return (
     <div>
       <h2
@@ -115,7 +82,7 @@ export default function WaterTreatmentCalculation() {
             20–39 атм. – 5 % паропроизводительности котлов.
           </p>
           <span>Для котла с давлением {pressure} бар: </span>
-          {isBlowDownValid() ? (
+          {waterTreatmentCalculation.isBlowDownValid() ? (
             <span className="calc-text_valid">Условие выполняется</span>
           ) : (
             <>
@@ -150,7 +117,7 @@ export default function WaterTreatmentCalculation() {
             работавших на давлении более 10 атм., не должна превышать 20 %
           </p>
           <span>Для котла с давлением {pressure} бар: </span>
-          {isRelativeAlkalinityValid() ? (
+          {waterTreatmentCalculation.isRelativeAlkalinityValid() ? (
             <span className="calc-text_valid">Условие выполняется</span>
           ) : (
             <>
@@ -210,7 +177,7 @@ export default function WaterTreatmentCalculation() {
             Концентрация углекислоты в паре в расчетах по выбору схем обработки
             воды допускается не более 20 мг/кг.
           </span>
-          {isDecompositionNa2CO3Valid() ? (
+          {waterTreatmentCalculation.isDecompositionNa2CO3Valid() ? (
             <span className="calc-text_valid">Условие выполняется</span>
           ) : (
             <>

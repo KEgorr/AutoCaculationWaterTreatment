@@ -13,12 +13,37 @@ class WaterTreatmentCalculation {
     return Number(blowDown.toFixed(3));
   }
 
+  isBlowDownValid() {
+    const { pressure } = boilerData;
+    const boilerBlowDown = this.getBoilerBlowDown();
+
+    if (pressure <= 13 && boilerBlowDown <= 10) {
+      return true;
+    }
+    if (pressure <= 20 && boilerBlowDown <= 7) {
+      return true;
+    }
+    if (boilerBlowDown <= 5) {
+      return true;
+    }
+    return false;
+  }
+
   getRelativeAlkalinity() {
     const { alkalinity, dryResidue } = waterData;
 
     const relativeAlkalinity = (40 * alkalinity * 100) / dryResidue;
 
     return Number(relativeAlkalinity.toFixed(3));
+  }
+
+  isRelativeAlkalinityValid() {
+    const { pressure } = boilerData;
+
+    if (pressure > 10 && this.getRelativeAlkalinity() > 20) {
+      return false;
+    }
+    return true;
   }
 
   getCarbonDioxideConcentration() {
@@ -60,6 +85,16 @@ class WaterTreatmentCalculation {
       return 0.85;
     }
     return 0.9;
+  }
+
+  isDecompositionNa2CO3Valid() {
+    if (
+      this.getCarbonDioxideConcentration() < 20 ||
+      this.getCarbonDioxideConcentrationWithB() < 20
+    ) {
+      return true;
+    }
+    return false;
   }
 }
 
