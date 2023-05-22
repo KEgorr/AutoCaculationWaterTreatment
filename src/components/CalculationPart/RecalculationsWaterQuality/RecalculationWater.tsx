@@ -2,18 +2,19 @@ import { useState } from 'react';
 import { BlockMath, InlineMath } from 'react-katex';
 import waterIonicComposition from '../../../modules/WaterIonicComposition/WaterIonicComposition';
 import waterData from '../../../modules/Basic data/WaterData';
+import {
+  Ca2,
+  Cl,
+  Fe3,
+  HCO3,
+  Mg2,
+  Na,
+  NO3,
+  SiO3,
+  SO4,
+} from '../chemicalsText/chemicalText';
 
 export default function RecalculationWater() {
-  const Ca2 = `Ca^{2+}`;
-  const Mg2 = `Mg^{2+}`;
-  const Na = `Na^{+}`;
-  const Fe3 = `Fe^{3+}`;
-  const HCO3 = `HCO_3^{-}`;
-  const SO4 = `SO_4^{2-}`;
-  const Cl = `NO_3^{-}`;
-  const NO3 = `Cl^{-}`;
-  const SiO3 = `SiO_3^{2-}`;
-
   const equivalentFormula = `\\tag{1} Э^x = \\frac{M}{n},`;
   const CaEquivalentCalc = `Э^{${Ca2}} = \\frac{M}{n} = \\frac{40,08}{2} = 20,04, экв`;
   const Ca2Calc = `${Ca2} = \\frac{${
