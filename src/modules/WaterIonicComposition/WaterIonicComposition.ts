@@ -1,4 +1,4 @@
-import waterData from '../WaterData';
+import waterData from '../Basic data/WaterData';
 
 class WaterIonicComposition {
   getCa2() {

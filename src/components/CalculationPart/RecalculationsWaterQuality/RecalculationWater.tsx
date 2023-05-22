@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { BlockMath, InlineMath } from 'react-katex';
-import waterIonicComposition from '../../../modules/Basic data/Recalculation of source water quality indicators/WaterIonicComposition';
+import waterIonicComposition from '../../../modules/WaterIonicComposition/WaterIonicComposition';
 import waterData from '../../../modules/Basic data/WaterData';
 
 export default function RecalculationWater() {
@@ -51,7 +51,7 @@ export default function RecalculationWater() {
             химического вещества, которое реагирует с 1 г водорода или вытесняет
             такое же количество водорода из его соединений.
           </p>
-          <p>Эквивалент вещества находится по формуле:</p>
+          <p>Эквивалент вещества находится по формуле 1:</p>
           <BlockMath math={equivalentFormula} />
           <p>где M – молекулярная масса вещества; n – валентность.</p>
           <p>
