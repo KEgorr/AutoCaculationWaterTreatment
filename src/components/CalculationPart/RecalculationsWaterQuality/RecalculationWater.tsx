@@ -14,9 +14,9 @@ export default function RecalculationWater() {
   const NO3 = `Cl^{-}`;
   const SiO3 = `SiO_3^{2-}`;
 
-  const equivalentFormula = `\\tag{1} Э^x = \\frac{M}{n}`;
-  const CaEquivalentFormula = `Э^{${Ca2}} = \\frac{M}{n} = \\frac{40,08}{2} = 20,04, экв`;
-  const Ca2formula = `${Ca2} = \\frac{${
+  const equivalentFormula = `\\tag{1} Э^x = \\frac{M}{n},`;
+  const CaEquivalentCalc = `Э^{${Ca2}} = \\frac{M}{n} = \\frac{40,08}{2} = 20,04, экв`;
+  const Ca2Calc = `${Ca2} = \\frac{${
     waterData.Ca2
   }}{20,04} = ${waterIonicComposition.getCa2()}`;
   const cationsSum = `\\tag{2} \\sum Кат = ${Ca2} + ${Mg2} + ${Na} + ${Fe3}`;
@@ -61,8 +61,8 @@ export default function RecalculationWater() {
           <p>
             Определяем эквивалент <InlineMath math={Ca2} /> по выражению (1)
           </p>
-          <BlockMath math={CaEquivalentFormula} />
-          <BlockMath math={Ca2formula} />
+          <BlockMath math={CaEquivalentCalc} />
+          <BlockMath math={Ca2Calc} />
           <p>
             Таким же образом производится перерасчет всех анионов и катионов.
             Ионный состав воды представлен в таблице 1.
