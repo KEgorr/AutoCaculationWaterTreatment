@@ -41,11 +41,16 @@ export default function AddBoiler(addBoilerProps: IAddBoilerProps) {
   }
 
   function isInputEmpty() {
-    let empty = false;
+    let empty = true;
     Object.keys(boilerData).forEach((key) => {
       const valueObj = boilerData[key];
-      if (isBoilerDataValue(valueObj) && valueObj.value.trim().length === 0) {
-        empty = true;
+      if (
+        isBoilerDataValue(valueObj) &&
+        valueObj.value.trim().length === 0 &&
+        key !== 'steamLosses' &&
+        key !== 'requiredDryResidue'
+      ) {
+        empty = false;
         setBoilerData((prev) => ({
           ...prev,
           [key]: {
@@ -58,8 +63,25 @@ export default function AddBoiler(addBoilerProps: IAddBoilerProps) {
     return empty;
   }
 
+  function isSteamLossesValid() {
+    let valid = true;
+    if (Number(boilerData.steamLosses.value) > 1) {
+      valid = false;
+      setBoilerData({
+        ...boilerData,
+        steamLosses: {
+          ...boilerData.steamLosses,
+          isValid: false,
+        },
+      });
+    }
+    return valid;
+  }
+
   function onDataChange() {
-    if (isInputEmpty()) {
+    const isEmpty = isInputEmpty();
+    const isLosses = isSteamLossesValid();
+    if (!isEmpty || !isLosses) {
       return;
     }
     if (chosenBoiler) {
@@ -89,6 +111,7 @@ export default function AddBoiler(addBoilerProps: IAddBoilerProps) {
                   name={input.name}
                   dimension={input.dimension}
                   onChange={handleChange}
+                  hint={input.hint}
                 />
               );
             }
@@ -129,6 +152,11 @@ export default function AddBoiler(addBoilerProps: IAddBoilerProps) {
       <button className="common-button" onClick={onDataChange}>
         {!chosenBoiler ? 'Добавить котел' : 'Сохранить'}
       </button>
+      {!boilerData.steamLosses.isValid && (
+        <p className="boiler-error-massage">
+          Суммарные потери пара не могут быть больше единицы
+        </p>
+      )}
     </div>
   );
 }

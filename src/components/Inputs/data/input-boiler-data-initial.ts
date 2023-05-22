@@ -22,6 +22,20 @@ export const inputBoilerInit = [
     name: 'numberOfBoilers',
     dimension: 'шт',
   },
+  {
+    id: 4,
+    title: 'Суммарные потери пара',
+    name: 'steamLosses',
+    dimension: 'доля',
+    hint: 'При отсутствии данных будет рассчитан по типу котла',
+  },
+  {
+    id: 5,
+    title: 'Сухой остаток котловой воды',
+    name: 'requiredDryResidue',
+    dimension: 'мг/кг',
+    hint: 'При отсутствии данных будет рассчитан по типу котла',
+  },
 ];
 
 export const boilerTypes = [
@@ -96,6 +110,14 @@ export const boilerDataInitial = {
     isValid: true,
   },
   pressure: {
+    value: '',
+    isValid: true,
+  },
+  steamLosses: {
+    value: '',
+    isValid: true,
+  },
+  requiredDryResidue: {
     value: '',
     isValid: true,
   },

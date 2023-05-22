@@ -74,6 +74,12 @@ export default function BoilersTable({
                   </th>
                   <th className="boilers-table__th">Рабочее давление, бар</th>
                   <th className="boilers-table__th">Количество котлов, шт</th>
+                  <th className="boilers-table__th">
+                    Суммарные потери пара, доли
+                  </th>
+                  <th className="boilers-table__th">
+                    Необходимый сухой остаток, мг/кг
+                  </th>
                   <th className="boilers-table__th">Тип котла</th>
                   <th className="boilers-table__th">
                     Тип сепарационного устройства

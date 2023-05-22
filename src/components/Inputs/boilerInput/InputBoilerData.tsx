@@ -3,11 +3,11 @@ import { InputBoilerDataProps } from '../../../types/props-types';
 export default function InputBoilerData(
   inputBoilerDataProps: InputBoilerDataProps
 ) {
-  const { title, value, name, dimension, className, type, checkedValue } =
+  const { title, value, name, dimension, className, type, checkedValue, hint } =
     inputBoilerDataProps;
   return (
     <li className="input-block">
-      <label>
+      <label title={hint}>
         <span className="input-block__text">{title}</span>
         <input
           type={type}

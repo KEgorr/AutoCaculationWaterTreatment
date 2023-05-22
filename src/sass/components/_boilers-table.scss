@@ -30,6 +30,7 @@
   background-color: $selected_color;
   .boilers-table__td {
     color: $background_color;
+    border-color: $background_color;
   }
 }
 
