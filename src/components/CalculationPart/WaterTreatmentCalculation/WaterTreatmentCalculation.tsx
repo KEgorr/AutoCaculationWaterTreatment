@@ -177,7 +177,7 @@ export default function WaterTreatmentCalculation() {
             Концентрация углекислоты в паре в расчетах по выбору схем обработки
             воды допускается не более 20 мг/кг.
           </span>
-          {waterTreatmentCalculation.isDecompositionNa2CO3Valid() ? (
+          {waterTreatmentCalculation.isCO2Valid() ? (
             <span className="calc-text_valid">Условие выполняется</span>
           ) : (
             <>

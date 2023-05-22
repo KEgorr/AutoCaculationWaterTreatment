@@ -87,7 +87,7 @@ class WaterTreatmentCalculation {
     return 0.9;
   }
 
-  isDecompositionNa2CO3Valid() {
+  isCO2Valid() {
     if (
       this.getCarbonDioxideConcentration() < 20 ||
       this.getCarbonDioxideConcentrationWithB() < 20
