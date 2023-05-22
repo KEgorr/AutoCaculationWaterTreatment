@@ -5,19 +5,20 @@ import boilerData from '../../../modules/Basic data/BoilerData';
 import waterData from '../../../modules/Basic data/WaterData';
 import waterTreatmentCalculation from '../../../modules/WaterTreatmentCalculation/WaterTreatmentCalculation';
 import decompositionNa2CO3Img from '../../../assets/imgs/decompositionNa2CO3.png';
+import {
+  Alk_ot_kv,
+  Alk_ot_ov,
+  Alk_ov,
+  alpha_ov,
+  CO2,
+  mgKgDimension,
+  P_k,
+  sigma,
+  S_kv,
+  S_ov,
+} from '../chemicalsText/chemicalText';
 
 export default function WaterTreatmentCalculation() {
-  const S_ov = `S_{O.B}`;
-  const P_k = `П_K`;
-  const S_kv = `S_{K.B}`;
-  const Alk_ot_kv = `Щ_{O.T.K.B}`;
-  const Alk_ot_ov = `Щ_{O.T.O.B}`;
-  const Alk_ov = `Щ_{O.B}`;
-  const CO2 = `CO_2`;
-  const alpha_ov = `\\alpha_{O.B}`;
-  const sigma = `\\sigma`;
-  const mgKgDimension = `\\frac{мг}{кг}`;
-
   const { dryResidue, alkalinity } = waterData;
   const { requiredDryResidue, steamLosses, pressure } = boilerData;
 
