@@ -34,6 +34,16 @@ const baseConfig = {
       {
         test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'assets/images/[name].[ext]',
+        },
+      },
+      {
+        test: /\.(woff|woff2|ttf)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[name].[ext]',
+        },
       },
     ],
   },
@@ -43,7 +53,6 @@ const baseConfig = {
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
-    assetModuleFilename: 'assets/images/[name].[ext]',
   },
   plugins: [
     new HtmlWebpackPlugin({
