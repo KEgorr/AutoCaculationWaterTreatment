@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import AdditionalWaterScheme from './AdditionalWaterScheme';
 import FeedWaterTreatmentScheme from './FeedWaterScheme';
 
 export default function WaterTreatmentScheme() {
@@ -27,6 +28,7 @@ export default function WaterTreatmentScheme() {
       <div className={isHidden ? 'calc-block block-hidden' : 'calc-block'}>
         <div className="calc-block__content">
           <FeedWaterTreatmentScheme />
+          <AdditionalWaterScheme />
         </div>
       </div>
     </div>

@@ -63,6 +63,10 @@ class WaterIonicComposition {
       ).toFixed(3)
     );
   }
+
+  getAnionsSumHard() {
+    return Number((this.getSO4() + this.getCl() + this.getNO3()).toFixed(3));
+  }
 }
 
 const waterIonicComposition = new WaterIonicComposition();
