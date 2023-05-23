@@ -1,6 +1,6 @@
 import waterData from '../Basic data/WaterData';
-import waterTreatmentCalculation from './WaterTreatmentCalculation';
-import waterIonicComposition from '../WaterIonicComposition/WaterIonicComposition';
+import waterTreatmentCalculation from './waterTreatmentCalculation';
+import waterIonicComposition from '../WaterIonicComposition/waterIonicComposition';
 import parallelNaCationSchemeImg from '../../assets/imgs/parallel-Na-cationImg.png';
 import NaCationWithAcidSchemeImg from '../../assets/imgs/parallel-Na-cationImg-with-acid-img.png';
 import parallelHNaCationSchemeImg from '../../assets/imgs/parallel-H-Na-cationImg.png';

@@ -1,6 +1,6 @@
 import { InlineMath } from 'react-katex';
 import waterData from '../../../../modules/Basic data/WaterData';
-import waterIonicComposition from '../../../../modules/WaterIonicComposition/WaterIonicComposition';
+import waterIonicComposition from '../../../../modules/WaterIonicComposition/waterIonicComposition';
 import twoStageDesaltingScheme from '../../../../assets/imgs/two-stage-desalting-scheme-img.png';
 import partialStageDesaltingScheme from '../../../../assets/imgs/partial-desalting-scheme-img.png';
 import {

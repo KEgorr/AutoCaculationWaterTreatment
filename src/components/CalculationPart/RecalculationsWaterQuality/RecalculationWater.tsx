@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { BlockMath, InlineMath } from 'react-katex';
-import waterIonicComposition from '../../../modules/WaterIonicComposition/WaterIonicComposition';
+import waterIonicComposition from '../../../modules/WaterIonicComposition/waterIonicComposition';
 import waterData from '../../../modules/Basic data/WaterData';
 import {
   Ca2,

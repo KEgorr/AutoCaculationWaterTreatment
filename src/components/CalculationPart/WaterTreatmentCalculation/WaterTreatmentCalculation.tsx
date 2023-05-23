@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { BlockMath, InlineMath } from 'react-katex';
 import boilerData from '../../../modules/Basic data/BoilerData';
 import waterData from '../../../modules/Basic data/WaterData';
-import waterTreatmentCalculation from '../../../modules/WaterTreatmentCalculation/WaterTreatmentCalculation';
+import waterTreatmentCalculation from '../../../modules/WaterTreatmentCalculation/waterTreatmentCalculation';
 import decompositionNa2CO3Img from '../../../assets/imgs/decompositionNa2CO3.png';
 import {
   Alk_ot_kv,

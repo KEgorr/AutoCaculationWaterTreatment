@@ -1,4 +1,4 @@
-import getFeedWaterTreatmentScheme from '../../../../modules/WaterTreatmentCalculation/FeedWaterTreatmentScheme';
+import getFeedWaterTreatmentScheme from '../../../../modules/WaterTreatmentCalculation/feedWaterTreatmentScheme';
 
 export default function FeedWaterTreatmentScheme() {
   const { schemeImg, schemeText, schemeTittle } = getFeedWaterTreatmentScheme();
