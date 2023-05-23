@@ -3,21 +3,20 @@ import waterData from '../../../../modules/Basic data/WaterData';
 import waterIonicComposition from '../../../../modules/WaterIonicComposition/waterIonicComposition';
 import twoStageDesaltingScheme from '../../../../assets/imgs/two-stage-desalting-scheme-img.png';
 import partialStageDesaltingScheme from '../../../../assets/imgs/partial-desalting-scheme-img.png';
+import { anionsSumSymbol, HardnessK } from '../../textVariables/symbos';
 import {
   Al2SO3,
-  anionsSumSymbol,
   Cl,
   CO2,
   CO3,
   FeSO4,
-  HardnessK,
   HCO3,
   HSiO3,
   NO2,
   NO3,
   SiO3,
   SO4,
-} from '../../chemicalsText/chemicalText';
+} from '../../textVariables/chemicalText';
 
 export default function AdditionalWaterScheme() {
   const { carbonateHardness } = waterData;

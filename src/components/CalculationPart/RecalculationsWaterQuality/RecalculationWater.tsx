@@ -12,7 +12,7 @@ import {
   NO3,
   SiO3,
   SO4,
-} from '../chemicalsText/chemicalText';
+} from '../textVariables/chemicalText';
 
 export default function RecalculationWater() {
   const equivalentFormula = `\\tag{1} Э^x = \\frac{M}{n},`;
@@ -76,7 +76,7 @@ export default function RecalculationWater() {
           <BlockMath math={anionsSum} />
           <div>
             <p>Таблица 1 - Ионный состав воды</p>
-            <table className="ionic-table">
+            <table className="calc-block__table">
               <thead>
                 <tr>
                   <th></th>

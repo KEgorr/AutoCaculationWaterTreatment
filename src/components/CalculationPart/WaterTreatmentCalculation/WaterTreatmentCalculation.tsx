@@ -5,18 +5,18 @@ import boilerData from '../../../modules/Basic data/BoilerData';
 import waterData from '../../../modules/Basic data/WaterData';
 import waterTreatmentCalculation from '../../../modules/WaterTreatmentCalculation/waterTreatmentCalculation';
 import decompositionNa2CO3Img from '../../../assets/imgs/decompositionNa2CO3.png';
+import { mgKgDimension } from '../textVariables/dimensions';
 import {
   Alk_ot_kv,
   Alk_ot_ov,
   Alk_ov,
   alpha_ov,
-  CO2,
-  mgKgDimension,
   P_k,
   sigma,
   S_kv,
   S_ov,
-} from '../chemicalsText/chemicalText';
+} from '../textVariables/symbos';
+import { CO2 } from '../textVariables/chemicalText';
 
 export default function WaterTreatmentCalculation() {
   const { dryResidue, alkalinity } = waterData;
