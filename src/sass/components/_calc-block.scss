@@ -21,11 +21,19 @@
 .calc-block {
   background-color: $input-background_color;
   overflow: hidden;
-  max-height: 5000px;
+  max-height: 2000px;
   transition: 0.5s;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   text-align: justify;
+}
+
+.calc-block_cation-filters {
+  max-height: 10000px;
+}
+
+.block-hidden {
+  max-height: 0;
 }
 
 .calc-block__table-container {
@@ -74,10 +82,6 @@
 
 .calc-img-title {
   text-align: center;
-}
-
-.block-hidden {
-  max-height: 0;
 }
 
 .calc-text_valid {
