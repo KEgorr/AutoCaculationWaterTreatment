@@ -21,11 +21,23 @@
 .calc-block {
   background-color: $input-background_color;
   overflow: hidden;
-  max-height: 2000px;
+  max-height: 5000px;
   transition: 0.5s;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   text-align: justify;
+  table {
+    border: 1px solid $background_color;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    th,
+    td {
+      font-size: 1rem;
+      text-align: center;
+      border: 1px solid $background_color;
+      padding: 5px;
+    }
+  }
 }
 
 .calc-block__content {
@@ -59,14 +71,14 @@
   max-height: 0;
 }
 
-.test {
-  height: 1000px;
-}
-
 .calc-text_valid {
   color: green;
 }
 
 .calc-text_invalid {
   color: $error_color;
+}
+
+.table-tittle {
+  margin-top: 0.5rem;
 }

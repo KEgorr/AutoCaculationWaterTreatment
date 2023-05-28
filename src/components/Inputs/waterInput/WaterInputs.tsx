@@ -21,6 +21,7 @@ export default function WaterInputs({
                 }
                 waterData={el}
                 update={update}
+                value={el.value}
               />
             );
           }
@@ -40,6 +41,7 @@ export default function WaterInputs({
                   className={'input-block__field'}
                   waterData={el}
                   update={update}
+                  value={el.value}
                 />
               );
             }

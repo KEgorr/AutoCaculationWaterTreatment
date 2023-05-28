@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { InputProps } from '../../../types/props-types';
 import validation from '../tools/number-validation';
 
-function WaterUsualInput({ waterData, update, className }: InputProps) {
-  const [value, setValue] = useState('');
-
+function WaterUsualInput({ waterData, update, className, value }: InputProps) {
   function inputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const isValid = validation(event);
     if (!isValid) {
       return;
     }
-    setValue(event.target.value);
+
     update(waterData.id, event.target.value);
   }
 

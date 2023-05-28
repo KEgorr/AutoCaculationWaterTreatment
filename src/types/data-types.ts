@@ -32,3 +32,32 @@ export interface IWaterData extends IObjectKeys {
   sup?: string;
   isValid?: boolean;
 }
+
+export interface IFilter {
+  id: number;
+  name: string;
+  performance: number;
+  pressure: number;
+  diameter: number;
+  filtrationArea: number;
+  link: string;
+  filterLoadSize: number;
+  filtrationHeight: number;
+}
+
+export interface ICheckedFilter extends IFilter {
+  numberOfFilters: number;
+}
+
+export const enum UnitSaltUsage {
+  under5 = 140,
+  under10 = 160,
+  under15 = 210,
+  under20 = 230,
+  secondStage = 350,
+}
+
+export const enum FilterStage {
+  NaCationSecondStage,
+  NaCationFirstStage,
+}

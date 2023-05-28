@@ -1,8 +1,9 @@
-import { IBoilerData, IWaterData } from './data-types';
+import { IBoilerData, ICheckedFilter, IWaterData } from './data-types';
 
 export interface InputProps {
   waterData: IWaterData;
   className: string;
+  value: string;
   update(id: number, value: string): void;
 }
 
@@ -40,4 +41,9 @@ export interface InputBoilerDataProps {
   type?: string;
   checkedValue?: string;
   hint?: string;
+}
+
+export interface IFilterProps {
+  filters: ICheckedFilter;
+  reserveFiltersNumber?: number;
 }
