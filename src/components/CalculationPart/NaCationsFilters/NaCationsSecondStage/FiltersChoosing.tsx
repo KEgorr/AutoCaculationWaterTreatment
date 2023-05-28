@@ -125,8 +125,12 @@ export default function FilterChoosing({ filters }: IFilterProps) {
         </p>
       )}
       <p>Характеристики фильтра {filters.name} представлены в таблице 5.1</p>
-      <p className="table-tittle">Таблица 5.1 характеристики {filters.name}</p>
-      <FilterTable filters={filters} reserveFiltersNumber={reserveFilters} />
+      <div className="calc-block__table-container">
+        <p className="table-tittle">
+          Таблица 5.1 характеристики {filters.name}
+        </p>
+        <FilterTable filters={filters} reserveFiltersNumber={reserveFilters} />
+      </div>
     </>
   );
 }

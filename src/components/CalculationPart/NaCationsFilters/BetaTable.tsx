@@ -4,7 +4,7 @@ import { beta_Na } from '../textVariables/symbos';
 export default function BetaTable() {
   const split = `\\frac{C^{2}_{Na}}{Ж_o}`;
   return (
-    <table>
+    <table className="calc-block__table">
       <tbody>
         <tr>
           <td>

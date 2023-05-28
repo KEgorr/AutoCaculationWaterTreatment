@@ -16,14 +16,16 @@ export default function FeedWaterTreatmentScheme() {
       <p>
         Исходя из полученных данных для обработки питательной воды выбрана
         схема: `<span className="scheme-choice">{schemeTittle}</span>`
-        представленная на рисунке 1.
+        представленная на рисунке 3.1
       </p>
-      <img
-        className="calc-img feed-water-treatment-scheme-img"
-        src={schemeImg}
-        alt=""
-      />
-      <p className="calc-img-title">Рисунок 1 - {schemeTittle}</p>
+      <div className="calc-img__container">
+        <img
+          className="calc-img feed-water-treatment-scheme-img"
+          src={schemeImg}
+          alt=""
+        />
+        <p className="calc-img-title">Рисунок 3.1 - {schemeTittle}</p>
+      </div>
       <p>{schemeText}</p>
     </>
   );

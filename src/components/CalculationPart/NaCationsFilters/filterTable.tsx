@@ -8,7 +8,7 @@ export default function FilterTable({
 }: IFilterProps) {
   return (
     <>
-      <table>
+      <table className="calc-block__table">
         <thead>
           <tr>
             <th>Наименование параметров</th>

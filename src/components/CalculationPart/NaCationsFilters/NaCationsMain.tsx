@@ -22,7 +22,7 @@ export default function NaCationsFiltersMain() {
         }
         onClick={changeVisibility}
       >
-        Выбор и расчет Na-катионных фильтров
+        5 Выбор и расчет Na-катионных фильтров
       </h2>
       <div className={isHidden ? 'calc-block block-hidden' : 'calc-block'}>
         <div className="calc-block__content">

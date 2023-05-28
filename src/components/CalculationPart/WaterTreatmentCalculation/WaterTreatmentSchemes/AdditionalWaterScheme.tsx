@@ -64,16 +64,18 @@ export default function AdditionalWaterScheme() {
             включающая: первую ступень Н-катионирования, слабоосновное
             анионирование, декарбонизацию, вторую ступень Н-катионирования,
             сильноосновное анионирование (Н1-А1-D-Н2-А2). Данная схема
-            представлена на рисунке 2.
+            представлена на рисунке (3.2).
           </p>
-          <img
-            className="calc-img feed-water-treatment-scheme-img"
-            src={twoStageDesaltingScheme}
-            alt=""
-          />
-          <p className="calc-img-title">
-            Рисунок 2 – Схема двухступенчатого обессоливания
-          </p>
+          <div className="calc-img__container">
+            <img
+              className="calc-img feed-water-treatment-scheme-img"
+              src={twoStageDesaltingScheme}
+              alt=""
+            />
+            <p className="calc-img-title">
+              Рисунок 3.2 – Схема двухступенчатого обессоливания
+            </p>
+          </div>
           <p>
             В данной схеме, кроме двух ступеней умягчения воды (фильтры Н1 и
             Н2), установлены две ступени анионирования. Первую ступень (фильтр
@@ -99,16 +101,18 @@ export default function AdditionalWaterScheme() {
             предложена схема упрощенного химического обессоливания, включающая:
             первую ступень Н-катионирования, вторую ступень Н-катионирования,
             декарбонизацию, сильноосновное анионирование (Н1-Н2-D-А2). Данная
-            схема представлена на рисунке 2.
+            схема представлена на рисунке (3.2).
           </p>
-          <img
-            className="calc-img feed-water-treatment-scheme-img"
-            src={partialStageDesaltingScheme}
-            alt=""
-          />
-          <p className="calc-img-title">
-            Рисунок 2 – Схема частичного (упрощенного) обессоливания
-          </p>
+          <div className="calc-img__container">
+            <img
+              className="calc-img feed-water-treatment-scheme-img"
+              src={partialStageDesaltingScheme}
+              alt=""
+            />
+            <p className="calc-img-title">
+              Рисунок 3.2 – Схема частичного (упрощенного) обессоливания
+            </p>
+          </div>
           <p>
             В данной схеме катионитные фильтры Н1 и Н2 служат для глубокого
             умягчения воды. В декарбонизаторе происходит удаление свободной

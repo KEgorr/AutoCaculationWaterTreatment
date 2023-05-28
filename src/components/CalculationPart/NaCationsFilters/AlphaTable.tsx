@@ -3,7 +3,7 @@ import { alpha_e } from '../textVariables/symbos';
 
 export default function AlphaTable() {
   return (
-    <table>
+    <table className="calc-block__table">
       <tbody>
         <tr>
           <td>

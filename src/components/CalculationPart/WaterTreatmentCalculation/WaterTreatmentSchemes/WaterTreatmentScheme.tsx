@@ -23,7 +23,7 @@ export default function WaterTreatmentScheme() {
         }
         onClick={changeVisibility}
       >
-        Выбор схемы водоподготовительной установки
+        3 Выбор схемы водоподготовительной установки
       </h2>
       <div className={isHidden ? 'calc-block block-hidden' : 'calc-block'}>
         <div className="calc-block__content">

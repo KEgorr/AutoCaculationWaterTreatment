@@ -15,13 +15,13 @@ import {
 } from '../textVariables/chemicalText';
 
 export default function RecalculationWater() {
-  const equivalentFormula = `\\tag{1} Э^x = \\frac{M}{n},`;
+  const equivalentFormula = `\\tag{1.1} Э^x = \\frac{M}{n},`;
   const CaEquivalentCalc = `Э^{${Ca2}} = \\frac{M}{n} = \\frac{40,08}{2} = 20,04, экв`;
   const Ca2Calc = `${Ca2} = \\frac{${
     waterData.Ca2
   }}{20,04} = ${waterIonicComposition.getCa2()}`;
-  const cationsSum = `\\tag{2} \\sum Кат = ${Ca2} + ${Mg2} + ${Na} + ${Fe3}`;
-  const anionsSum = `\\tag{3} \\sum Ан = ${HCO3} + ${SO4} + ${Cl} + ${NO3} + ${SiO3}`;
+  const cationsSum = `\\tag{1.2} \\sum Кат = ${Ca2} + ${Mg2} + ${Na} + ${Fe3}`;
+  const anionsSum = `\\tag{1.3} \\sum Ан = ${HCO3} + ${SO4} + ${Cl} + ${NO3} + ${SiO3}`;
 
   const [isHidden, setHidden] = useState(true);
 
@@ -42,7 +42,7 @@ export default function RecalculationWater() {
         }
         onClick={changeVisibility}
       >
-        Перерасчет показателей качества исходной воды
+        1 Перерасчет показателей качества исходной воды
       </h2>
       <div className={isHidden ? 'calc-block block-hidden' : 'calc-block'}>
         <div className="calc-block__content">
@@ -52,30 +52,30 @@ export default function RecalculationWater() {
             химического вещества, которое реагирует с 1 г водорода или вытесняет
             такое же количество водорода из его соединений.
           </p>
-          <p>Эквивалент вещества находится по формуле 1:</p>
+          <p>Эквивалент вещества находится по формуле (1.1):</p>
           <BlockMath math={equivalentFormula} />
           <p>где M – молекулярная масса вещества; n – валентность.</p>
           <p>
-            В исходной воде катионов <InlineMath math={Ca2} /> содержится
+            В исходной воде катионов <InlineMath math={Ca2} /> содержится{' '}
             {waterData.Ca2} мг/кг.
           </p>
           <p>
-            Определяем эквивалент <InlineMath math={Ca2} /> по выражению (1)
+            Определяем эквивалент <InlineMath math={Ca2} /> по выражению (1.1):
           </p>
           <BlockMath math={CaEquivalentCalc} />
           <BlockMath math={Ca2Calc} />
           <p>
             Таким же образом производится перерасчет всех анионов и катионов.
-            Ионный состав воды представлен в таблице 1.
+            Ионный состав воды представлен в таблице 1.1.
           </p>
           <p>
             Для определения суммарной концентрации катионов и анионов
-            используются выражения (2) и (3):
+            используются выражения (1.2) и (1.3):
           </p>
           <BlockMath math={cationsSum} />
           <BlockMath math={anionsSum} />
-          <div>
-            <p>Таблица 1 - Ионный состав воды</p>
+          <div className="calc-block__table-container">
+            <p>Таблица 1.1 - Ионный состав воды</p>
             <table className="calc-block__table">
               <thead>
                 <tr>

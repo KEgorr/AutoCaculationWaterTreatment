@@ -77,10 +77,12 @@ export default function RegenerationNumberCalculation({
         равным в зависимости от удельного расхода соли на регенерацию (таблица
         5.2), принимаем равным {alpha};
       </p>
-      <p className="table-tittle">
-        Таблица 5.2 - Коэффициент эффективности регенерации катионита
-      </p>
-      <AlphaTable />
+      <div className="calc-block__table-container">
+        <p className="table-tittle">
+          Таблица 5.2 - Коэффициент эффективности регенерации катионита
+        </p>
+        <AlphaTable />
+      </div>
       <p>
         <InlineMath math={beta_Na} /> - коэффициент, учитывающий снижение
         обменной способности катионита по <InlineMath math={Ca2} /> и{' '}
@@ -88,10 +90,12 @@ export default function RegenerationNumberCalculation({
         <InlineMath math={Na} />
         (принимается исходя из таблицы 5.3) равен {beta};
       </p>
-      <p className="table-tittle">
-        Таблица 5.3 - Коэффициент снижения обменной способности катионита
-      </p>
-      <BetaTable />
+      <div className="calc-block__table-container">
+        <p className="table-tittle">
+          Таблица 5.3 - Коэффициент снижения обменной способности катионита
+        </p>
+        <BetaTable />
+      </div>
       <p>
         <InlineMath math={E_p} /> - полная обменная способность катионита, в
         расчетах принимается Еп = 500 <InlineMath math={'г·экв/м^3'} />;

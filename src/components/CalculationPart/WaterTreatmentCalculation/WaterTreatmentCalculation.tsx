@@ -22,13 +22,13 @@ export default function WaterTreatmentCalculation() {
   const { dryResidue, alkalinity } = waterData;
   const { requiredDryResidue, steamLosses, pressure } = boilerData;
 
-  const blowDownnFormula = `\\tag{1} p = \\frac {${S_ov} * ${P_k} * 100}{${S_kv} - ${S_ov} * ${P_k}},`;
+  const blowDownFormula = `\\tag{2.1} p = \\frac {${S_ov} * ${P_k} * 100}{${S_kv} - ${S_ov} * ${P_k}},`;
   const blowDownCalc = `p = \\frac {${dryResidue} * ${steamLosses} * 100}{${requiredDryResidue} - ${dryResidue} * ${steamLosses}} = ${waterTreatmentCalculation.getBoilerBlowDown()} \\%`;
-  const relativeAlkalinityFormula = `\\tag{2} ${Alk_ot_kv} = ${Alk_ot_ov} = \\frac {40 * ${Alk_ov} * 100}{${S_ov}},`;
+  const relativeAlkalinityFormula = `\\tag{2.2} ${Alk_ot_kv} = ${Alk_ot_ov} = \\frac {40 * ${Alk_ov} * 100}{${S_ov}},`;
   const relativeAlkalinityCalc = `${Alk_ot_kv} = ${Alk_ot_ov} = \\frac {40 * ${alkalinity} * 100}{${dryResidue}} = ${waterTreatmentCalculation.getRelativeAlkalinity()} \\%`;
-  const decompositionNa2CO3Formula = `\\tag{3} ${CO2} = 22 * ${Alk_ov} * ${alpha_ov} * (1 + ${sigma}),`;
+  const decompositionNa2CO3Formula = `\\tag{2.3} ${CO2} = 22 * ${Alk_ov} * ${alpha_ov} * (1 + ${sigma}),`;
   const decompositionNa2CO3Calc = `${CO2} = 22 * ${alkalinity} * 0.5 * (1 + ${waterTreatmentCalculation.getDecompositionNa2CO3()}) = ${waterTreatmentCalculation.getCarbonDioxideConcentration()} ${mgKgDimension}`;
-  const decompositionNa2CO3FormulaWithB = `\\tag{4} ${CO2} = 22 * ${Alk_ov} * ${alpha_ov} * (${sigma}_1 + ${sigma}),`;
+  const decompositionNa2CO3FormulaWithB = `\\tag{2.4} ${CO2} = 22 * ${Alk_ov} * ${alpha_ov} * (${sigma}_1 + ${sigma}),`;
   const decompositionNa2CO3CalcWithB = `${CO2} = 22 * ${alkalinity} * 0.5 * (0.4 + ${waterTreatmentCalculation.getDecompositionNa2CO3()}) = ${waterTreatmentCalculation.getCarbonDioxideConcentrationWithB()} ${mgKgDimension}`;
 
   const [isHidden, setHidden] = useState(true);
@@ -51,7 +51,7 @@ export default function WaterTreatmentCalculation() {
         }
         onClick={changeVisibility}
       >
-        Расчетный метод выбора схем обработки воды
+        2 Расчетный метод выбора схем обработки воды
       </h2>
       <div className={isHidden ? 'calc-block block-hidden' : 'calc-block'}>
         <div className="calc-block__content">
@@ -62,9 +62,10 @@ export default function WaterTreatmentCalculation() {
           </p>
           <p>
             Величину продувки котлов по сухому остатку определяют в
-            предварительных расчетах по выбору схем обработки воды по формуле 1:
+            предварительных расчетах по выбору схем обработки воды по формуле
+            (2.1):
           </p>
-          <BlockMath math={blowDownnFormula} />
+          <BlockMath math={blowDownFormula} />
           <p>
             где p – величина продувки котлов по сухому остатку, %;{'  '}
             <InlineMath math={S_ov} /> – сухой остаток обработанной воды, мг/кг;
@@ -84,10 +85,10 @@ export default function WaterTreatmentCalculation() {
           </p>
           <span>Для котла с давлением {pressure} бар: </span>
           {waterTreatmentCalculation.isBlowDownValid() ? (
-            <span className="calc-text_valid">Условие выполняется</span>
+            <span className="calc-text_valid">Условие выполняется.</span>
           ) : (
             <>
-              <span className="calc-text_invalid">Условие не выполняется</span>
+              <span className="calc-text_invalid">Условие не выполняется.</span>
               <p>
                 Для снижения величины продувки котлов рекомендуется улучшение
                 сепарационных устройств – внутрибарабанные циклоны, ступенчатое
@@ -101,7 +102,7 @@ export default function WaterTreatmentCalculation() {
             Относительная щелочность котловой воды равна относительной
             щелочности обработанной воды (разбавление конденсатом и
             концентрирование солей в котле не изменяет величину относительной
-            щелочности) и определяется по формуле 2:
+            щелочности) и определяется по формуле (2.2):
           </p>
           <BlockMath math={relativeAlkalinityFormula} />
           <p>
@@ -133,7 +134,7 @@ export default function WaterTreatmentCalculation() {
             Концентрация углекислоты в паре в расчетах по выбору схем обработки
             воды допускается не более 20 мг/кг. Концентрацию углекислоты в паре
             определяют при отсутствии деаэрации питательной воды или при
-            использовании деаэраторов без барботажа по формуле 3:
+            использовании деаэраторов без барботажа по формуле (2.3):
           </p>
           <BlockMath math={decompositionNa2CO3Formula} />
           <p>
@@ -144,16 +145,18 @@ export default function WaterTreatmentCalculation() {
             <InlineMath math={alpha_ov} /> = 0,5 – доля обра-ботанной воды в
             питательной;{'  '}
             <InlineMath math={sigma} /> – доля разложения Na2СO3 в котле,
-            определяется по рисунку 1.
+            определяется по рисунку (2.1).
           </p>
-          <img
-            className="calc-img decomposition-Na2CO3-img"
-            src={decompositionNa2CO3Img}
-            alt=""
-          />
-          <p className="calc-img-title">
-            Рисунок 1 – Разложение Na2СО3 в зависимости от давления
-          </p>
+          <div className="calc-img__container">
+            <img
+              className="calc-img decomposition-Na2CO3-img"
+              src={decompositionNa2CO3Img}
+              alt=""
+            />
+            <p className="calc-img-title">
+              Рисунок 2.1 – Разложение Na2СО3 в зависимости от давления
+            </p>
+          </div>
           <p>
             Таким образом концентрация углекислоты в паре с деаэрацией без
             барботажа равна:
@@ -161,7 +164,7 @@ export default function WaterTreatmentCalculation() {
           <BlockMath math={decompositionNa2CO3Calc} />
           <p>
             Концентрацию углекислоты в паре при деаэрации с барботажем
-            определяют по формуле 4:
+            определяют по формуле (2.4):
           </p>
           <BlockMath math={decompositionNa2CO3FormulaWithB} />
           <p>
