@@ -1,6 +1,6 @@
 import { IFilter } from '../../types/data-types';
 
-const NaCationsFilters: IFilter[] = [
+const SecondStageNaCationsFilters: IFilter[] = [
   {
     id: 0,
     name: 'ФИПа II-0,7-0,6 Na',
@@ -69,4 +69,4 @@ const NaCationsFilters: IFilter[] = [
   },
 ];
 
-export default NaCationsFilters;
+export default SecondStageNaCationsFilters;

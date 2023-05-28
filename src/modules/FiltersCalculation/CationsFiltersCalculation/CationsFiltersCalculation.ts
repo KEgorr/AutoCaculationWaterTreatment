@@ -3,7 +3,8 @@ import {
   ICheckedFilter,
   UnitSaltUsage,
 } from '../../../types/data-types';
-import NaCationsFilters from '../../Basic data/2StageNaCationFilters';
+import FirstStageNaCationsFilters from '../../Basic data/1StageNaCationFilters';
+import SecondStageNaCationsFilters from '../../Basic data/2StageNaCationFilters';
 import boilerData from '../../Basic data/BoilerData';
 import waterData from '../../Basic data/WaterData';
 import steamBalanceBoiler from '../../SteamBalanceOfBoiler/steamBalanceOfBoiller';
@@ -45,6 +46,13 @@ class CationsFilter {
     let filtrationArea = 0;
     if (filterStage === FilterStage.NaCationSecondStage) {
       filtrationArea = getFiltrationArea(40, filterPerformance);
+      const validFilter = getFilter(
+        filtrationArea,
+        SecondStageNaCationsFilters,
+        2,
+        filterPerformance
+      );
+      this.curFilter = validFilter;
     } else if (filterStage === FilterStage.NaCationFirstStage) {
       const hardnessNaFirstStage = this.getHardnessNaFirstStage();
       if (hardnessNaFirstStage < 5) {
@@ -54,16 +62,16 @@ class CationsFilter {
       } else {
         filtrationArea = getFiltrationArea(10, filterPerformance);
       }
+      const validFilter = getFilter(
+        filtrationArea,
+        FirstStageNaCationsFilters,
+        2,
+        filterPerformance
+      );
+      this.curFilter = validFilter;
     }
 
-    const validFilter = getFilter(
-      filtrationArea,
-      NaCationsFilters,
-      2,
-      filterPerformance
-    );
-    this.curFilter = validFilter;
-    return validFilter;
+    return this.curFilter;
   }
 
   getHardnessNaFirstStage() {
@@ -211,5 +219,6 @@ class CationsFilter {
 }
 
 const secondStageNaCationFilter = new CationsFilter();
+const firstStageNaCationFilter = new CationsFilter();
 
-export default secondStageNaCationFilter;
+export { secondStageNaCationFilter, firstStageNaCationFilter };

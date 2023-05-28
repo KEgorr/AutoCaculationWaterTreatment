@@ -1,5 +1,5 @@
 import { BlockMath, InlineMath } from 'react-katex';
-import secondStageNaCationFilter from '../../../../modules/FiltersCalculation/CationsFiltersCalculation/CationsFiltersCalculation';
+import { secondStageNaCationFilter } from '../../../../modules/FiltersCalculation/CationsFiltersCalculation/CationsFiltersCalculation';
 import { FilterStage } from '../../../../types/data-types';
 import { IFilterProps } from '../../../../types/props-types';
 import {

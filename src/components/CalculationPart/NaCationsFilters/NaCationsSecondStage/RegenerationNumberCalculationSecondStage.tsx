@@ -4,7 +4,7 @@ import {
   getAlpha,
   getBeta,
 } from '../../../../modules/FiltersCalculation/filtersTools';
-import secondStageNaCationFilter from '../../../../modules/FiltersCalculation/CationsFiltersCalculation/CationsFiltersCalculation';
+import { secondStageNaCationFilter } from '../../../../modules/FiltersCalculation/CationsFiltersCalculation/CationsFiltersCalculation';
 import steamBalanceBoiler from '../../../../modules/SteamBalanceOfBoiler/steamBalanceOfBoiller';
 import waterIonicComposition from '../../../../modules/WaterIonicComposition/waterIonicComposition';
 import { FilterStage, UnitSaltUsage } from '../../../../types/data-types';
