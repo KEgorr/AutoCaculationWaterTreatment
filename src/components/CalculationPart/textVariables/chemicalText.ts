@@ -14,3 +14,4 @@ export const SiO3 = `SiO_3^{2-}`;
 export const HSiO3 = `HSiO_3^{-}`;
 export const CO3 = `CO_3^{2-}`;
 export const CO2 = `CO_2`;
+export const H2SO4 = `H_{2}SO_{4}`;

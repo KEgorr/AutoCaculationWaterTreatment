@@ -3,6 +3,7 @@ import WaterTreatmentScheme from './WaterTreatmentCalculation/WaterTreatmentSche
 import WaterTreatmentCalculation from './WaterTreatmentCalculation/WaterTreatmentCalculation';
 import SteamBalanceBoilers from './SteamBalanceOfBoilers/SteamBalanceOfBoilers';
 import NaCationsFiltersMain from './FiltersCalculation/NaCationsFilters/NaCationsMain';
+import HCationFilters from './FiltersCalculation/HCationsFilters/HCationsFilters';
 
 export default function MainCalculation() {
   return (
@@ -12,6 +13,7 @@ export default function MainCalculation() {
       <WaterTreatmentScheme />
       <SteamBalanceBoilers />
       <NaCationsFiltersMain />
+      <HCationFilters />
     </div>
   );
 }

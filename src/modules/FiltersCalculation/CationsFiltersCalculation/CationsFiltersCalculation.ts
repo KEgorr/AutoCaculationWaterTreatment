@@ -176,8 +176,8 @@ class CationsFilter {
       }
     } else if (filterStage === FilterStage.HCationStage) {
       hardness = this.getHardnessHStage();
-      qc = 150;
-      alpha = 0.91;
+      qc = 60;
+      alpha = 0.71;
       q = 6.5;
       beta = 6;
       gamma = 1.03;
@@ -304,9 +304,39 @@ class CationsFilter {
 
     return Number((QchPerDay / 24).toFixed(3));
   }
+
+  getTrr(filterStage: FilterStage) {
+    const { filtrationArea } = this.curFilter;
+    const Qpk = this.getQc(filterStage);
+
+    return Number(((6 * Qpk) / filtrationArea).toFixed(3));
+  }
+
+  getTot() {
+    const { filtrationArea } = this.curFilter;
+    const Qot = this.getQot();
+
+    return Number(((6 * Qot) / filtrationArea).toFixed(3));
+  }
+
+  getTreg(filterStage: FilterStage) {
+    const trr = this.getTrr(filterStage);
+    const tot = this.getTot();
+
+    return Number(((15 + trr + tot) / 60).toFixed(3));
+  }
+
+  getNor(filterStage: FilterStage) {
+    const nH = this.getRegenerationNumber(filterStage);
+    const { numberOfFilters } = this.curFilter;
+    const treg = this.getTreg(filterStage);
+
+    return Number(((nH * numberOfFilters * treg) / 24).toFixed(3));
+  }
 }
 
 const secondStageNaCationFilter = new CationsFilter();
 const firstStageNaCationFilter = new CationsFilter();
+const hCationFilter = new CationsFilter();
 
-export { secondStageNaCationFilter, firstStageNaCationFilter };
+export { secondStageNaCationFilter, firstStageNaCationFilter, hCationFilter };
