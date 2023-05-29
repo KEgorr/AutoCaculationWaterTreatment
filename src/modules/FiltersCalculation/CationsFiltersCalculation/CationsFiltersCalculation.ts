@@ -244,7 +244,18 @@ class CationsFilter {
     const Qch = this.getQch(filterStage);
     const nNa = this.getRegenerationNumber(filterStage);
 
-    return Number((Qch * nNa).toFixed(3));
+    let k = 1;
+    if (filterStage === FilterStage.NaCationFirstStage) {
+      k = 2;
+    }
+
+    return Number((k * Qch * nNa).toFixed(3));
+  }
+
+  getQchPerHour(filterStage: FilterStage) {
+    const QchPerDay = this.getQchPerDay(filterStage);
+
+    return Number((QchPerDay / 24).toFixed(3));
   }
 }
 

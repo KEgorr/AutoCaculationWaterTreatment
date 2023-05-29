@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import NaCationFirstStage from './NaCationFirstStage/NaCationFirstStage';
 import NaCationsSecondStageFilters from './NaCationsSecondStage/NaCationsSecondStage';
 
 export default function NaCationsFiltersMain() {
@@ -24,9 +25,16 @@ export default function NaCationsFiltersMain() {
       >
         5 Выбор и расчет Na-катионных фильтров
       </h2>
-      <div className={isHidden ? 'calc-block block-hidden' : 'calc-block'}>
+      <div
+        className={
+          isHidden
+            ? 'calc-block block-hidden'
+            : 'calc-block calc-block_cation-filters'
+        }
+      >
         <div className="calc-block__content">
           <NaCationsSecondStageFilters />
+          <NaCationFirstStage />
         </div>
       </div>
     </div>
