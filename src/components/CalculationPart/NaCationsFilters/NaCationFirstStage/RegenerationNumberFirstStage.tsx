@@ -14,7 +14,7 @@ import {
   n_Na,
   Q_na1,
   V_k,
-} from '../../textVariables/symbos';
+} from '../../textVariables/symbols';
 
 export default function RegenerationNumberFirstStage({
   filters,

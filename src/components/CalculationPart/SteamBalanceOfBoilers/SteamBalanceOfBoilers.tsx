@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { InlineMath, BlockMath } from 'react-katex';
 import steamBalanceBoiler from '../../../modules/SteamBalanceOfBoiler/steamBalanceOfBoiller';
 import { TChasDimension } from '../textVariables/dimensions';
-import { G1, G2, q3, q4, q5, q6, q7, q8, Q_pk } from '../textVariables/symbos';
+import { G1, G2, q3, q4, q5, q6, q7, q8, Q_pk } from '../textVariables/symbols';
 
 export default function SteamBalanceBoilers() {
   const [isHidden, setHidden] = useState(true);

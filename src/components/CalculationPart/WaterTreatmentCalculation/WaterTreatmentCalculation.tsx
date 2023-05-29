@@ -15,7 +15,7 @@ import {
   sigma,
   S_kv,
   S_ov,
-} from '../textVariables/symbos';
+} from '../textVariables/symbols';
 import { CO2 } from '../textVariables/chemicalText';
 
 export default function WaterTreatmentCalculation() {

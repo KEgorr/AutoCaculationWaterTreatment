@@ -1,5 +1,5 @@
 import { InlineMath } from 'react-katex';
-import { alpha_e } from '../textVariables/symbos';
+import { alpha_e } from '../textVariables/symbols';
 
 export default function AlphaTable() {
   return (

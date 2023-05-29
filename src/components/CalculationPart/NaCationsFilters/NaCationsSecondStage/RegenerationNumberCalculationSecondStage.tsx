@@ -19,7 +19,7 @@ import {
   n_Na,
   Q_na2,
   V_k,
-} from '../../textVariables/symbos';
+} from '../../textVariables/symbols';
 import AlphaTable from '../AlphaTable';
 import BetaTable from '../BetaTable';
 

@@ -1,5 +1,5 @@
 import { InlineMath } from 'react-katex';
-import { beta_Na } from '../textVariables/symbos';
+import { beta_Na } from '../textVariables/symbols';
 
 export default function BetaTable() {
   const split = `\\frac{C^{2}_{Na}}{Ж_o}`;

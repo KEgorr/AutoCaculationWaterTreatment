@@ -3,7 +3,7 @@ import waterData from '../../../../modules/Basic data/WaterData';
 import waterIonicComposition from '../../../../modules/WaterIonicComposition/waterIonicComposition';
 import twoStageDesaltingScheme from '../../../../assets/imgs/two-stage-desalting-scheme-img.png';
 import partialStageDesaltingScheme from '../../../../assets/imgs/partial-desalting-scheme-img.png';
-import { anionsSumSymbol, HardnessK } from '../../textVariables/symbos';
+import { anionsSumSymbol, HardnessK } from '../../textVariables/symbols';
 import {
   Al2SO3,
   Cl,

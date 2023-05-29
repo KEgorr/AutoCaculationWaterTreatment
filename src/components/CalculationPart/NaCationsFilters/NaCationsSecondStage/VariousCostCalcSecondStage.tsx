@@ -20,7 +20,7 @@ import {
   Q_vzr,
   t_vzr,
   V_k,
-} from '../../textVariables/symbos';
+} from '../../textVariables/symbols';
 
 export default function VariousCostCalcSecondStage({ filters }: IFilterProps) {
   const EpNa = secondStageNaCationFilter.getEpNa(

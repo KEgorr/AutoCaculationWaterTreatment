@@ -16,7 +16,7 @@ import {
   omega,
   Q_na1,
   Q_na2,
-} from '../../textVariables/symbos';
+} from '../../textVariables/symbols';
 import FilterTable from '../filterTable';
 
 export default function FirstStageFilterChoosing({ filters }: IFilterProps) {
