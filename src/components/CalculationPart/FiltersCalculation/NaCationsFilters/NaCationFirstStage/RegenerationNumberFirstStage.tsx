@@ -1,10 +1,10 @@
 import { BlockMath, InlineMath } from 'react-katex';
-import { getBeta } from '../../../../modules/FiltersCalculation/filtersTools';
-import { firstStageNaCationFilter } from '../../../../modules/FiltersCalculation/CationsFiltersCalculation/CationsFiltersCalculation';
-import waterIonicComposition from '../../../../modules/WaterIonicComposition/waterIonicComposition';
-import { FilterStage } from '../../../../types/data-types';
-import { IFilterProps } from '../../../../types/props-types';
-import { Ca2, Mg2, Na } from '../../textVariables/chemicalText';
+import { getBeta } from '../../../../../modules/FiltersCalculation/filtersTools';
+import { firstStageNaCationFilter } from '../../../../../modules/FiltersCalculation/CationsFiltersCalculation/CationsFiltersCalculation';
+import waterIonicComposition from '../../../../../modules/WaterIonicComposition/waterIonicComposition';
+import { FilterStage } from '../../../../../types/data-types';
+import { IFilterProps } from '../../../../../types/props-types';
+import { Ca2, Mg2, Na } from '../../../textVariables/chemicalText';
 import {
   alpha_e,
   beta_Na,
@@ -14,7 +14,7 @@ import {
   n_Na,
   Q_na1,
   V_k,
-} from '../../textVariables/symbols';
+} from '../../../textVariables/symbols';
 
 export default function RegenerationNumberFirstStage({
   filters,

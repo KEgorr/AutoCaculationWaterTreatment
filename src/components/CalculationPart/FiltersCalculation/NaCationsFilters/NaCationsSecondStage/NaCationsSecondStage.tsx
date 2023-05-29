@@ -1,5 +1,5 @@
-import { secondStageNaCationFilter } from '../../../../modules/FiltersCalculation/CationsFiltersCalculation/CationsFiltersCalculation';
-import { FilterStage } from '../../../../types/data-types';
+import { secondStageNaCationFilter } from '../../../../../modules/FiltersCalculation/CationsFiltersCalculation/CationsFiltersCalculation';
+import { FilterStage } from '../../../../../types/data-types';
 import FilterChoosing from './FiltersChoosing';
 import RegenerationNumberCalculation from './RegenerationNumberCalculationSecondStage';
 import VariousCostCalcSecondStage from './VariousCostCalcSecondStage';

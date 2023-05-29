@@ -1,13 +1,16 @@
 import { BlockMath, InlineMath } from 'react-katex';
-import waterData from '../../../../modules/Basic data/WaterData';
-import { firstStageNaCationFilter } from '../../../../modules/FiltersCalculation/CationsFiltersCalculation/CationsFiltersCalculation';
+import waterData from '../../../../../modules/Basic data/WaterData';
+import { firstStageNaCationFilter } from '../../../../../modules/FiltersCalculation/CationsFiltersCalculation/CationsFiltersCalculation';
 import {
   getFiltrationSpeed,
   getMaxFiltrationSpeed,
-} from '../../../../modules/FiltersCalculation/filtersTools';
-import { FilterStage } from '../../../../types/data-types';
-import { IFilterProps } from '../../../../types/props-types';
-import { MChasDimension, TChasDimension } from '../../textVariables/dimensions';
+} from '../../../../../modules/FiltersCalculation/filtersTools';
+import { FilterStage } from '../../../../../types/data-types';
+import { IFilterProps } from '../../../../../types/props-types';
+import {
+  MChasDimension,
+  TChasDimension,
+} from '../../../textVariables/dimensions';
 import {
   F_na1,
   HardnessK,
@@ -16,8 +19,8 @@ import {
   omega,
   Q_na1,
   Q_na2,
-} from '../../textVariables/symbols';
-import FilterTable from '../filterTable';
+} from '../../../textVariables/symbols';
+import FilterTable from '../../filterTable';
 
 export default function FirstStageFilterChoosing({ filters }: IFilterProps) {
   const { filtrationArea, filterPerformance, maxSpeed, normalSpeed, hardness } =

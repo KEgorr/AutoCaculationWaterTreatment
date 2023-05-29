@@ -2,7 +2,7 @@ import RecalculationWater from './RecalculationsWaterQuality/RecalculationWater'
 import WaterTreatmentScheme from './WaterTreatmentCalculation/WaterTreatmentSchemes/WaterTreatmentScheme';
 import WaterTreatmentCalculation from './WaterTreatmentCalculation/WaterTreatmentCalculation';
 import SteamBalanceBoilers from './SteamBalanceOfBoilers/SteamBalanceOfBoilers';
-import NaCationsFiltersMain from './NaCationsFilters/NaCationsMain';
+import NaCationsFiltersMain from './FiltersCalculation/NaCationsFilters/NaCationsMain';
 
 export default function MainCalculation() {
   return (

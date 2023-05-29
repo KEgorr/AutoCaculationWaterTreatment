@@ -1,7 +1,7 @@
 import { BlockMath, InlineMath } from 'react-katex';
-import { secondStageNaCationFilter } from '../../../../modules/FiltersCalculation/CationsFiltersCalculation/CationsFiltersCalculation';
-import { FilterStage } from '../../../../types/data-types';
-import { IFilterProps } from '../../../../types/props-types';
+import { secondStageNaCationFilter } from '../../../../../modules/FiltersCalculation/CationsFiltersCalculation/CationsFiltersCalculation';
+import { FilterStage } from '../../../../../types/data-types';
+import { IFilterProps } from '../../../../../types/props-types';
 import {
   delta,
   Ep_Na,
@@ -20,7 +20,7 @@ import {
   Q_vzr,
   t_vzr,
   V_k,
-} from '../../textVariables/symbols';
+} from '../../../textVariables/symbols';
 
 export default function VariousCostCalcSecondStage({ filters }: IFilterProps) {
   const EpNa = secondStageNaCationFilter.getEp(FilterStage.NaCationSecondStage);

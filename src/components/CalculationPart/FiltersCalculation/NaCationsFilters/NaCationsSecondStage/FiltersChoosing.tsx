@@ -3,12 +3,15 @@ import {
   getFiltrationArea,
   getFiltrationSpeed,
   getMaxFiltrationSpeed,
-} from '../../../../modules/FiltersCalculation/filtersTools';
-import steamBalanceBoiler from '../../../../modules/SteamBalanceOfBoiler/steamBalanceOfBoiller';
-import { IFilterProps } from '../../../../types/props-types';
-import { MChasDimension, TChasDimension } from '../../textVariables/dimensions';
-import { F_na2, omega, Q_na2 } from '../../textVariables/symbols';
-import FilterTable from '../filterTable';
+} from '../../../../../modules/FiltersCalculation/filtersTools';
+import steamBalanceBoiler from '../../../../../modules/SteamBalanceOfBoiler/steamBalanceOfBoiller';
+import { IFilterProps } from '../../../../../types/props-types';
+import {
+  MChasDimension,
+  TChasDimension,
+} from '../../../textVariables/dimensions';
+import { F_na2, omega, Q_na2 } from '../../../textVariables/symbols';
+import FilterTable from '../../filterTable';
 
 export default function FilterChoosing({ filters }: IFilterProps) {
   const filterPerformance = steamBalanceBoiler.getWTP();

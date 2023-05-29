@@ -3,13 +3,13 @@ import { BlockMath, InlineMath } from 'react-katex';
 import {
   getAlpha,
   getBeta,
-} from '../../../../modules/FiltersCalculation/filtersTools';
-import { secondStageNaCationFilter } from '../../../../modules/FiltersCalculation/CationsFiltersCalculation/CationsFiltersCalculation';
-import steamBalanceBoiler from '../../../../modules/SteamBalanceOfBoiler/steamBalanceOfBoiller';
-import waterIonicComposition from '../../../../modules/WaterIonicComposition/waterIonicComposition';
-import { FilterStage, UnitSaltUsage } from '../../../../types/data-types';
-import { IFilterProps } from '../../../../types/props-types';
-import { Ca2, Mg2, Na } from '../../textVariables/chemicalText';
+} from '../../../../../modules/FiltersCalculation/filtersTools';
+import { secondStageNaCationFilter } from '../../../../../modules/FiltersCalculation/CationsFiltersCalculation/CationsFiltersCalculation';
+import steamBalanceBoiler from '../../../../../modules/SteamBalanceOfBoiler/steamBalanceOfBoiller';
+import waterIonicComposition from '../../../../../modules/WaterIonicComposition/waterIonicComposition';
+import { FilterStage, UnitSaltUsage } from '../../../../../types/data-types';
+import { IFilterProps } from '../../../../../types/props-types';
+import { Ca2, Mg2, Na } from '../../../textVariables/chemicalText';
 import {
   alpha_e,
   beta_Na,
@@ -19,7 +19,7 @@ import {
   n_Na,
   Q_na2,
   V_k,
-} from '../../textVariables/symbols';
+} from '../../../textVariables/symbols';
 import AlphaTable from '../AlphaTable';
 import BetaTable from '../BetaTable';
 

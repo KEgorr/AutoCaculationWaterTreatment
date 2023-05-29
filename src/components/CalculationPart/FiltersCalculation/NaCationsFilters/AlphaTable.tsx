@@ -1,5 +1,5 @@
 import { InlineMath } from 'react-katex';
-import { alpha_e } from '../textVariables/symbols';
+import { alpha_e } from '../../textVariables/symbols';
 
 export default function AlphaTable() {
   return (
