@@ -31,8 +31,8 @@ export default function SteamBalanceBoilers() {
   const q8Formula = `${q8} = 0.3${q7}`;
   const q8Calc = `${q8} = ${steamBalanceBoiler.getQ8()}`;
 
-  const QPkFormula = `\\tag{4.1} ${Q_pk} = k${q3} + ${q4} + ${q5} + ${q6} + ${q7} + ${q8} + P\\frac{${G1}}{100} ${TChasDimension},`;
-  const QPkCalc = `${Q_pk} = 1.2${steamBalanceBoiler.getQ3()} + ${steamBalanceBoiler.getQ4()} + ${steamBalanceBoiler.getQ5()} + ${steamBalanceBoiler.getQ6()} + ${steamBalanceBoiler.getQ7()} + ${steamBalanceBoiler.getQ8()} + P\\frac{${steamBalanceBoiler.getG1()}}{100} = ${steamBalanceBoiler.getWTP()} ${TChasDimension}`;
+  const QPkFormula = `\\tag{4.1} ${Q_pk} = k${q3} + ${q4} + ${q5} + ${q6} + ${q7} + ${q8} + P\\frac{${G1}}{100} \\ ${TChasDimension},`;
+  const QPkCalc = `${Q_pk} = 1.2 * ${steamBalanceBoiler.getQ3()} + ${steamBalanceBoiler.getQ4()} + ${steamBalanceBoiler.getQ5()} + ${steamBalanceBoiler.getQ6()} + ${steamBalanceBoiler.getQ7()} + ${steamBalanceBoiler.getQ8()} + P\\frac{${steamBalanceBoiler.getG1()}}{100} = ${steamBalanceBoiler.getWTP()} \\ ${TChasDimension}`;
 
   function changeVisibility() {
     if (isHidden) {
