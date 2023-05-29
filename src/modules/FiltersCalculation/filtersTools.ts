@@ -25,7 +25,7 @@ export function getFilter(
     })
     .filter((filter) => {
       if (filter.filtrationArea > oneFilterArea) {
-        if (number === 2 && performance > filter.performance) {
+        if (performance / (numberOfFilters - 1) > filter.performance) {
           return false;
         }
         return true;
