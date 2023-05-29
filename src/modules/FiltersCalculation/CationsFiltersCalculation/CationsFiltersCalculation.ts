@@ -141,7 +141,7 @@ class CationsFilter {
     let { filterPerformance } = this;
     let maxSpeed = 0;
     let normalSpeed = 0;
-
+    let gamma = 1.2;
     if (filterStage === FilterStage.NaCationSecondStage) {
       alpha = getAlpha(UnitSaltUsage.secondStage);
       hardness = this.getHardnessNaSecondStage();
@@ -176,6 +176,11 @@ class CationsFilter {
       }
     } else if (filterStage === FilterStage.HCationStage) {
       hardness = this.getHardnessHStage();
+      qc = 150;
+      alpha = 0.91;
+      q = 6.5;
+      beta = 6;
+      gamma = 1.03;
       if (hardness < 5) {
         normalSpeed = 20;
         maxSpeed = 30;
@@ -199,6 +204,7 @@ class CationsFilter {
       filterPerformance,
       maxSpeed,
       normalSpeed,
+      gamma,
     };
   }
 
@@ -214,6 +220,10 @@ class CationsFilter {
 
     if (filterStage === FilterStage.NaCationSecondStage) {
       return Number((alpha * beta * 500 - 0.5 * hardness * q).toFixed(3));
+    }
+    if (filterStage === FilterStage.HCationStage) {
+      const cationsSum = waterIonicComposition.getCationsSum();
+      return Number((alpha * 500 - 0.5 * q * cationsSum).toFixed(3));
     }
 
     return Number((alpha * beta * 500 - 0.5 * hardness * qc).toFixed(3));
@@ -240,6 +250,14 @@ class CationsFilter {
     return Number(((Qc * 100) / (1000 * 1.2 * 26)).toFixed(3));
   }
 
+  getQtk(filterStage: FilterStage) {
+    const Qpk = this.getQc(filterStage);
+    const nH = this.getRegenerationNumber(filterStage);
+    const { numberOfFilters } = this.curFilter;
+
+    return Number(((Qpk * nH * numberOfFilters * 100) / 92).toFixed(3));
+  }
+
   getQcc(filterStage: FilterStage) {
     const Qc = this.getQc(filterStage);
     const nNa = this.getRegenerationNumber(filterStage);
@@ -256,8 +274,8 @@ class CationsFilter {
 
   getQrr(filterStage: FilterStage) {
     const Qc = this.getQc(filterStage);
-    const { beta } = this.getParams(filterStage);
-    return Number(((100 * Qc) / (1000 * beta * 1.2)).toFixed(3));
+    const { beta, gamma } = this.getParams(filterStage);
+    return Number(((100 * Qc) / (1000 * beta * gamma)).toFixed(3));
   }
 
   getQot() {
@@ -276,13 +294,9 @@ class CationsFilter {
   getQchPerDay(filterStage: FilterStage) {
     const Qch = this.getQch(filterStage);
     const nNa = this.getRegenerationNumber(filterStage);
+    const { numberOfFilters } = this.curFilter;
 
-    let k = 1;
-    if (filterStage === FilterStage.NaCationFirstStage) {
-      k = 2;
-    }
-
-    return Number((k * Qch * nNa).toFixed(3));
+    return Number((numberOfFilters * Qch * nNa).toFixed(3));
   }
 
   getQchPerHour(filterStage: FilterStage) {

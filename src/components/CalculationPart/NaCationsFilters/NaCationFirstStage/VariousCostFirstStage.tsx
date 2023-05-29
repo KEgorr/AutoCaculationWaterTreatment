@@ -63,8 +63,8 @@ export default function VariousCostCalcFirstStage({ filters }: IFilterProps) {
   const QchPerDay = firstStageNaCationFilter.getQchPerDay(
     FilterStage.NaCationFirstStage
   );
-  const QchPerDayFormula = `\\tag{5.30} ${Q_na1} = 2${Q_ch} ${n_Na} \\ м^3/сут`;
-  const QchPerDayCalc = `${Q_na1} = 2 * ${Qch} * ${nNa} = ${QchPerDay} \\ м^3/сут`;
+  const QchPerDayFormula = `\\tag{5.30} ${Q_na1} = a${Q_ch} ${n_Na} \\ м^3/сут`;
+  const QchPerDayCalc = `${Q_na1} = ${filters.numberOfFilters} * ${Qch} * ${nNa} = ${QchPerDay} \\ м^3/сут`;
 
   const QchPerHour = firstStageNaCationFilter.getQchPerHour(
     FilterStage.NaCationFirstStage
