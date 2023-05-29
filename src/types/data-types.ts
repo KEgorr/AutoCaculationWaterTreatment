@@ -60,4 +60,5 @@ export const enum UnitSaltUsage {
 export const enum FilterStage {
   NaCationSecondStage,
   NaCationFirstStage,
+  HCationStage,
 }

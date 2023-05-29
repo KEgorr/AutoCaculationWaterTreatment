@@ -6,6 +6,7 @@ import {
 import FirstStageNaCationsFilters from '../../Basic data/1StageNaCationFilters';
 import SecondStageNaCationsFilters from '../../Basic data/2StageNaCationFilters';
 import boilerData from '../../Basic data/BoilerData';
+import HStageCationsFilters from '../../Basic data/HCationStageFilters';
 import waterData from '../../Basic data/WaterData';
 import steamBalanceBoiler from '../../SteamBalanceOfBoiler/steamBalanceOfBoiller';
 import waterIonicComposition from '../../WaterIonicComposition/waterIonicComposition';
@@ -40,6 +41,8 @@ class CationsFilter {
     let filterPerformance = steamBalanceBoiler.getWTP();
     if (filterStage === FilterStage.NaCationFirstStage) {
       filterPerformance += 0.285;
+    } else if (filterStage === FilterStage.HCationStage) {
+      filterPerformance += filterPerformance + 0.285;
     }
     this.filterPerformance = filterPerformance;
 
@@ -66,6 +69,22 @@ class CationsFilter {
         filtrationArea,
         FirstStageNaCationsFilters,
         2,
+        filterPerformance
+      );
+      this.curFilter = validFilter;
+    } else if (filterStage === FilterStage.HCationStage) {
+      const hardnessH = this.getHardnessHStage();
+      if (hardnessH < 5) {
+        filtrationArea = getFiltrationArea(20, filterPerformance);
+      } else if (hardnessH < 10) {
+        filtrationArea = getFiltrationArea(15, filterPerformance);
+      } else {
+        filtrationArea = getFiltrationArea(10, filterPerformance);
+      }
+      const validFilter = getFilter(
+        filtrationArea,
+        HStageCationsFilters,
+        3,
         filterPerformance
       );
       this.curFilter = validFilter;
@@ -107,6 +126,11 @@ class CationsFilter {
     }
   }
 
+  private getHardnessHStage() {
+    const { carbonateHardness } = waterData;
+    return Number((carbonateHardness - 1.1).toFixed(3));
+  }
+
   getParams(filterStage: FilterStage) {
     let hardness = 0;
     let alpha = 0;
@@ -117,13 +141,13 @@ class CationsFilter {
     let { filterPerformance } = this;
     let maxSpeed = 0;
     let normalSpeed = 0;
+
     if (filterStage === FilterStage.NaCationSecondStage) {
       alpha = getAlpha(UnitSaltUsage.secondStage);
       hardness = this.getHardnessNaSecondStage();
       q = 4;
       beta = 10;
       qc = UnitSaltUsage.secondStage;
-      filtrationArea = getFiltrationArea(40, filterPerformance);
       maxSpeed = 50;
       normalSpeed = 40;
     } else if (filterStage === FilterStage.NaCationFirstStage) {
@@ -132,29 +156,38 @@ class CationsFilter {
       if (hardness < 5) {
         alpha = getAlpha(UnitSaltUsage.under5);
         qc = UnitSaltUsage.under5;
-        filtrationArea = getFiltrationArea(25, filterPerformance);
         maxSpeed = 35;
         normalSpeed = 25;
       } else if (hardness < 10) {
         alpha = getAlpha(UnitSaltUsage.under10);
         qc = UnitSaltUsage.under10;
-        filtrationArea = getFiltrationArea(15, filterPerformance);
         maxSpeed = 25;
         normalSpeed = 15;
       } else if (hardness < 15) {
         alpha = getAlpha(UnitSaltUsage.under15);
         qc = UnitSaltUsage.under15;
-        filtrationArea = getFiltrationArea(10, filterPerformance);
         maxSpeed = 20;
         normalSpeed = 10;
       } else {
         alpha = getAlpha(UnitSaltUsage.under20);
         qc = UnitSaltUsage.under20;
         maxSpeed = 20;
-        filtrationArea = getFiltrationArea(10, filterPerformance);
         normalSpeed = 10;
       }
+    } else if (filterStage === FilterStage.HCationStage) {
+      hardness = this.getHardnessHStage();
+      if (hardness < 5) {
+        normalSpeed = 20;
+        maxSpeed = 30;
+      } else if (hardness < 10) {
+        normalSpeed = 15;
+        maxSpeed = 25;
+      } else if (hardness < 15) {
+        normalSpeed = 10;
+        maxSpeed = 20;
+      }
     }
+    filtrationArea = getFiltrationArea(normalSpeed, filterPerformance);
     filterPerformance = Number(filterPerformance.toFixed(3));
     return {
       hardness,
@@ -174,7 +207,7 @@ class CationsFilter {
     return Number((24 * hardness * this.filterPerformance).toFixed(3));
   }
 
-  getEpNa(filterStage: FilterStage) {
+  getEp(filterStage: FilterStage) {
     const { hardness, alpha, q, qc } = this.getParams(filterStage);
     const Na = waterIonicComposition.getNa();
     const beta = getBeta(hardness, Na);
@@ -188,14 +221,14 @@ class CationsFilter {
 
   getRegenerationNumber(filterStage: FilterStage) {
     const A = this.getA(filterStage);
-    const EpNa = this.getEpNa(filterStage);
+    const EpNa = this.getEp(filterStage);
     const { filterLoadSize, numberOfFilters } = this.curFilter;
 
     return Number((A / (filterLoadSize * EpNa * numberOfFilters)).toFixed(3));
   }
 
   getQc(filterStage: FilterStage) {
-    const EpNa = this.getEpNa(filterStage);
+    const EpNa = this.getEp(filterStage);
     const { filterLoadSize } = this.curFilter;
     const { qc } = this.getParams(filterStage);
     return Number(((EpNa * filterLoadSize * qc) / 1000).toFixed(3));

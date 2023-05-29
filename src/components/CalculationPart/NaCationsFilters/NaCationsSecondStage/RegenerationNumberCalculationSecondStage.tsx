@@ -34,9 +34,7 @@ export default function RegenerationNumberCalculation({
   const beta = getBeta(hardness, waterIonicComposition.getNa());
 
   const A = secondStageNaCationFilter.getA(FilterStage.NaCationSecondStage);
-  const EpNa = secondStageNaCationFilter.getEpNa(
-    FilterStage.NaCationSecondStage
-  );
+  const EpNa = secondStageNaCationFilter.getEp(FilterStage.NaCationSecondStage);
   const RegenNumber = secondStageNaCationFilter.getRegenerationNumber(
     FilterStage.NaCationSecondStage
   );

@@ -24,7 +24,7 @@ export default function RegenerationNumberFirstStage({
   const beta = getBeta(hardness, waterIonicComposition.getNa());
 
   const A = firstStageNaCationFilter.getA(FilterStage.NaCationFirstStage);
-  const EpNa = firstStageNaCationFilter.getEpNa(FilterStage.NaCationFirstStage);
+  const EpNa = firstStageNaCationFilter.getEp(FilterStage.NaCationFirstStage);
   const RegenNumber = firstStageNaCationFilter.getRegenerationNumber(
     FilterStage.NaCationFirstStage
   );

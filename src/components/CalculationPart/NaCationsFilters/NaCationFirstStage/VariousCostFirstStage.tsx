@@ -24,7 +24,7 @@ import {
 } from '../../textVariables/symbols';
 
 export default function VariousCostCalcFirstStage({ filters }: IFilterProps) {
-  const EpNa = firstStageNaCationFilter.getEpNa(FilterStage.NaCationFirstStage);
+  const EpNa = firstStageNaCationFilter.getEp(FilterStage.NaCationFirstStage);
   const { qc, beta } = firstStageNaCationFilter.getParams(
     FilterStage.NaCationFirstStage
   );
