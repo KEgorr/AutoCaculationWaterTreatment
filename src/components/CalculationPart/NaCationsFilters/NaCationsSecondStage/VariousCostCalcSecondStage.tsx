@@ -39,7 +39,7 @@ export default function VariousCostCalcSecondStage({ filters }: IFilterProps) {
 
   const Qnr = secondStageNaCationFilter.getQnr(FilterStage.NaCationSecondStage);
   const QnrFormula = `\\tag{5.8} ${Q_nr} = \\frac{${Q_c} * 100}{1000 * 1.2 * 26} \\ кг, `;
-  const QnrCalc = `${Q_nr} = \\frac{${Q_c} * 100}{1000 * 1.2 * 26} = ${Qnr} \\ кг`;
+  const QnrCalc = `${Q_nr} = \\frac{${Qc} * 100}{1000 * 1.2 * 26} = ${Qnr} \\ кг`;
 
   const Qcc = secondStageNaCationFilter.getQcc(FilterStage.NaCationSecondStage);
   const QccFormula = `\\tag{5.9} ${Q_cc} = \\frac{${Q_c}${n_Na} * a * 100}{96.5} \\ кг/сут,`;
