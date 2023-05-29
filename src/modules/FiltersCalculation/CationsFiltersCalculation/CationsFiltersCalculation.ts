@@ -74,13 +74,13 @@ class CationsFilter {
     return this.curFilter;
   }
 
-  getHardnessNaFirstStage() {
+  private getHardnessNaFirstStage() {
     const { totalHardness, carbonateHardness } = waterData;
 
     return Number((totalHardness - carbonateHardness + 0.4).toFixed(3));
   }
 
-  getHardnessNaSecondStage() {
+  private getHardnessNaSecondStage() {
     const { boilerType, pressure } = boilerData;
     switch (boilerType) {
       case 'Газотрубный или Жаротрубный':
@@ -113,30 +113,60 @@ class CationsFilter {
     let q = 0;
     let beta = 0;
     let qc = 0;
+    let filtrationArea = 0;
+    let { filterPerformance } = this;
+    let maxSpeed = 0;
+    let normalSpeed = 0;
     if (filterStage === FilterStage.NaCationSecondStage) {
       alpha = getAlpha(UnitSaltUsage.secondStage);
       hardness = this.getHardnessNaSecondStage();
       q = 4;
       beta = 10;
       qc = UnitSaltUsage.secondStage;
+      filtrationArea = getFiltrationArea(40, filterPerformance);
+      maxSpeed = 50;
+      normalSpeed = 40;
     } else if (filterStage === FilterStage.NaCationFirstStage) {
-      hardness = this.getHardnessNaSecondStage();
+      hardness = this.getHardnessNaFirstStage();
       beta = 6;
       if (hardness < 5) {
         alpha = getAlpha(UnitSaltUsage.under5);
         qc = UnitSaltUsage.under5;
+        filtrationArea = getFiltrationArea(25, filterPerformance);
+        maxSpeed = 35;
+        normalSpeed = 25;
       } else if (hardness < 10) {
         alpha = getAlpha(UnitSaltUsage.under10);
         qc = UnitSaltUsage.under10;
+        filtrationArea = getFiltrationArea(15, filterPerformance);
+        maxSpeed = 25;
+        normalSpeed = 15;
       } else if (hardness < 15) {
         alpha = getAlpha(UnitSaltUsage.under15);
         qc = UnitSaltUsage.under15;
+        filtrationArea = getFiltrationArea(10, filterPerformance);
+        maxSpeed = 20;
+        normalSpeed = 10;
       } else {
         alpha = getAlpha(UnitSaltUsage.under20);
         qc = UnitSaltUsage.under20;
+        maxSpeed = 20;
+        filtrationArea = getFiltrationArea(10, filterPerformance);
+        normalSpeed = 10;
       }
     }
-    return { hardness, alpha, q, qc, beta };
+    filterPerformance = Number(filterPerformance.toFixed(3));
+    return {
+      hardness,
+      alpha,
+      q,
+      qc,
+      beta,
+      filtrationArea,
+      filterPerformance,
+      maxSpeed,
+      normalSpeed,
+    };
   }
 
   getA(filterStage: FilterStage) {

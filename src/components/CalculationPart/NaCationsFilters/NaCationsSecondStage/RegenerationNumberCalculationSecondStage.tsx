@@ -27,11 +27,11 @@ export default function RegenerationNumberCalculation({
   filters,
 }: IFilterProps) {
   const filterPerformance = steamBalanceBoiler.getWTP();
-  const alpha = getAlpha(UnitSaltUsage.secondStage);
-  const beta = getBeta(
-    secondStageNaCationFilter.getHardnessNaSecondStage(),
-    waterIonicComposition.getNa()
+  const { hardness } = secondStageNaCationFilter.getParams(
+    FilterStage.NaCationSecondStage
   );
+  const alpha = getAlpha(UnitSaltUsage.secondStage);
+  const beta = getBeta(hardness, waterIonicComposition.getNa());
 
   const A = secondStageNaCationFilter.getA(FilterStage.NaCationSecondStage);
   const EpNa = secondStageNaCationFilter.getEpNa(
@@ -40,16 +40,15 @@ export default function RegenerationNumberCalculation({
   const RegenNumber = secondStageNaCationFilter.getRegenerationNumber(
     FilterStage.NaCationSecondStage
   );
-  const HardnessNa = secondStageNaCationFilter.getHardnessNaSecondStage();
 
   const nNaformula = `\\tag{5.4} ${n_Na} = \\frac{A}{${V_k}${Ep_Na}a} \\ раз/сут,`;
   const nNaCalc = `${n_Na} = \\frac{${A}}{${filters.filterLoadSize} * ${EpNa} * ${filters.numberOfFilters}} = ${RegenNumber} \\ раз/сут`;
 
   const AFormula = `\\tag{5.5} A = 24${H_0ost2}${Q_na2} \\ г-экв/сут,`;
-  const ACalc = `A = 24 * ${HardnessNa} * ${filterPerformance} = ${A} \\ г-экв/сут`;
+  const ACalc = `A = 24 * ${hardness} * ${filterPerformance} = ${A} \\ г-экв/сут`;
 
   const EpNaFormula = `\\tag{5.6} ${Ep_Na} = ${alpha_e}${beta_Na}${E_p} - 0.5${H_0ost2}q \\ г-экв/м^3,`;
-  const EpNaCalc = `${Ep_Na} = ${alpha} * ${beta} * 500 - 0.5 * ${HardnessNa} * 4 = ${EpNa} \\ г-экв/м^3`;
+  const EpNaCalc = `${Ep_Na} = ${alpha} * ${beta} * 500 - 0.5 * ${hardness} * 4 = ${EpNa} \\ г-экв/м^3`;
 
   return (
     <>
@@ -63,7 +62,7 @@ export default function RegenerationNumberCalculation({
       <p>
         где <InlineMath math={H_0ost2} /> - жесткость фильтрата после второй
         ступени катионирования принимают равной в зависимости от типа котла (
-        {HardnessNa}) мг-экв/л.
+        {hardness}) мг-экв/л.
       </p>
       <BlockMath math={ACalc} />
       <p>
