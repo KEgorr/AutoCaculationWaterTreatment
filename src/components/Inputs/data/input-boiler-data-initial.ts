@@ -98,27 +98,27 @@ export const separationTypes = [
 export const boilerDataInitial = {
   id: 0,
   name: {
-    value: '',
+    value: 'Котел',
     isValid: true,
   },
   performance: {
-    value: '',
+    value: '5',
     isValid: true,
   },
   numberOfBoilers: {
-    value: '',
+    value: '2',
     isValid: true,
   },
   pressure: {
-    value: '',
+    value: '8',
     isValid: true,
   },
   steamLosses: {
-    value: '',
+    value: '0.5',
     isValid: true,
   },
   requiredDryResidue: {
-    value: '',
+    value: '4000',
     isValid: true,
   },
   boilerType: {
