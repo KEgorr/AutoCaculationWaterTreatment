@@ -15,3 +15,6 @@ export const HSiO3 = `HSiO_3^{-}`;
 export const CO3 = `CO_3^{2-}`;
 export const CO2 = `CO_2`;
 export const H2SO4 = `H_{2}SO_{4}`;
+export const CO2_IV = `CO_{2}^{И.В}`;
+export const CO2_tab = `CO_{2}^{таб}`;
+export const CO2_ov = `CO_{2}^{О.В}`;

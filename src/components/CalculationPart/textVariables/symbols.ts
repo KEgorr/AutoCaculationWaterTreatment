@@ -64,3 +64,7 @@ export const tH_reg = `t^{H}_{рег}`;
 export const tH_rr = `t^{H}_{р.р}`;
 export const tH_ot = `t^{H}_{от}`;
 export const n_or = `n_{о.р}`;
+export const alpha = `\\alpha`;
+export const k_H = `k_Ж`;
+export const delta_sr = `\\varDelta_{ср}`;
+export const V_kr = `V_{к.р}`;
