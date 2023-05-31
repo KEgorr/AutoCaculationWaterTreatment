@@ -5,6 +5,7 @@ import SteamBalanceBoilers from './SteamBalanceOfBoilers/SteamBalanceOfBoilers';
 import NaCationsFiltersMain from './FiltersCalculation/NaCationsFilters/NaCationsMain';
 import HCationFilters from './FiltersCalculation/HCationsFilters/HCationsFilters';
 import DecarbonizesCalculation from './DecarbonizesCalculation/DecarbonizesCalculation';
+import LightFilters from './FiltersCalculation/LightFilters/LightFilters';
 
 export default function MainCalculation() {
   return (
@@ -16,6 +17,7 @@ export default function MainCalculation() {
       <NaCationsFiltersMain />
       <HCationFilters />
       <DecarbonizesCalculation />
+      <LightFilters />
     </div>
   );
 }

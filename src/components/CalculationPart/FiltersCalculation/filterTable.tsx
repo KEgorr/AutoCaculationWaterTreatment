@@ -67,7 +67,9 @@ export default function FilterTable({
       </table>
       <p>
         Подробнее ознакомиться с данным фильтром можно ознакомиться по ссылке:{' '}
-        <a href={filters.link}>{filters.link}</a>
+        <a href={filters.link} target="_blank" rel="noreferrer">
+          {filters.link}
+        </a>
       </p>
     </>
   );
