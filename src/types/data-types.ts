@@ -92,3 +92,27 @@ export interface IBrightenersChoosingProps {
 export interface IBrightenerTableProps {
   brightener: IValidBrightener;
 }
+
+export interface IDeaerator {
+  id: number;
+  name: string;
+  performance: number;
+  performanceDiapason: string;
+  pressure: number;
+  temperature: number;
+  averageWaterHeating: string;
+  tankType: string;
+  tankCapacity: number;
+  evaporationType: string;
+  evaporationArea: number;
+  safetyDevice: string;
+  link: string;
+}
+
+export interface IValidDeaerator extends IDeaerator {
+  numberOfDeaerators: number;
+}
+
+export interface IDeaeratorTableProps {
+  deaerator: IValidDeaerator;
+}

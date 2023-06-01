@@ -7,6 +7,7 @@ import HCationFilters from './FiltersCalculation/HCationsFilters/HCationsFilters
 import DecarbonizesCalculation from './DecarbonizesCalculation/DecarbonizesCalculation';
 import LightFilters from './FiltersCalculation/LightFilters/LightFilters';
 import Brighteners from './BrightenersCalculation/Brighteners';
+import Deaerators from './Deaerators/Deaerators';
 
 export default function MainCalculation() {
   return (
@@ -20,6 +21,7 @@ export default function MainCalculation() {
       <DecarbonizesCalculation />
       <LightFilters />
       <Brighteners />
+      <Deaerators />
     </div>
   );
 }
