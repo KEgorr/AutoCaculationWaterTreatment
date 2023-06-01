@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import waterData from '../../../modules/Basic data/WaterData';
 import LimingCalculation from './LimingCalculation';
 import CoagulationCalculation from './CoagulationCalculation';
 import BrightenersChoosing from './BrightenersChoosing';
-import { BrightenersType } from '../../../types/data-types';
+import { BrightenersType, ICalcProps } from '../../../types/data-types';
 
-export default function Brighteners() {
+export default function Brighteners({ calcCount }: ICalcProps) {
   const [isHidden, setHidden] = useState(true);
   const { carbonateHardness } = waterData;
 
@@ -17,6 +17,7 @@ export default function Brighteners() {
     setHidden(true);
   }
 
+  useEffect(() => setHidden(true), [calcCount]);
   return (
     <div>
       <h2

@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { InlineMath, BlockMath } from 'react-katex';
 import steamBalanceBoiler from '../../../modules/SteamBalanceOfBoiler/steamBalanceOfBoiller';
+import { ICalcProps } from '../../../types/data-types';
 import { TChasDimension } from '../textVariables/dimensions';
 import { G1, G2, q3, q4, q5, q6, q7, q8, Q_PK } from '../textVariables/symbols';
 
-export default function SteamBalanceBoilers() {
+export default function SteamBalanceBoilers({ calcCount }: ICalcProps) {
   const [isHidden, setHidden] = useState(true);
 
   const G1Formula = `${G1} = NQ`;
@@ -41,6 +42,8 @@ export default function SteamBalanceBoilers() {
     }
     setHidden(true);
   }
+
+  useEffect(() => setHidden(true), [calcCount]);
   return (
     <div>
       <h2

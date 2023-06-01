@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { ICalcProps } from '../../../../types/data-types';
 import NaCationFirstStage from './NaCationFirstStage/NaCationFirstStage';
 import NaCationsSecondStageFilters from './NaCationsSecondStage/NaCationsSecondStage';
 
-export default function NaCationsFiltersMain() {
+export default function NaCationsFiltersMain({ calcCount }: ICalcProps) {
   const [isHidden, setHidden] = useState(true);
 
   function changeVisibility() {
@@ -13,6 +14,7 @@ export default function NaCationsFiltersMain() {
     setHidden(true);
   }
 
+  useEffect(() => setHidden(true), [calcCount]);
   return (
     <div>
       <h2

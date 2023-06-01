@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { ICalcProps } from '../../../../types/data-types';
 import AdditionalWaterScheme from './AdditionalWaterScheme';
 import FeedWaterTreatmentScheme from './FeedWaterScheme';
 
-export default function WaterTreatmentScheme() {
+export default function WaterTreatmentScheme({ calcCount }: ICalcProps) {
   const [isHidden, setHidden] = useState(true);
 
   function changeVisibility() {
@@ -13,6 +14,7 @@ export default function WaterTreatmentScheme() {
     setHidden(true);
   }
 
+  useEffect(() => setHidden(true), [calcCount]);
   return (
     <div>
       <h2

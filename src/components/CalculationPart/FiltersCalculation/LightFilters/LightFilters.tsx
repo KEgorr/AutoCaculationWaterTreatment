@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import lightFilters from '../../../../modules/FiltersCalculation/LightFilters/LightFilters';
+import { ICalcProps } from '../../../../types/data-types';
 import LightFiltersChoosing from './LightFilterChoosing';
 
-export default function LightFilters() {
+export default function LightFilters({ calcCount }: ICalcProps) {
   const filters = lightFilters.getFilter(3);
 
   const [isHidden, setHidden] = useState(true);
@@ -15,6 +16,7 @@ export default function LightFilters() {
     setHidden(true);
   }
 
+  useEffect(() => setHidden(true), [calcCount]);
   return (
     <div>
       <h2

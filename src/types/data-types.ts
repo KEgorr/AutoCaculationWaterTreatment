@@ -116,3 +116,7 @@ export interface IValidDeaerator extends IDeaerator {
 export interface IDeaeratorTableProps {
   deaerator: IValidDeaerator;
 }
+
+export interface ICalcProps {
+  calcCount: number;
+}

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BlockMath, InlineMath } from 'react-katex';
 import boilerData from '../../../modules/Basic data/BoilerData';
 import waterData from '../../../modules/Basic data/WaterData';
@@ -17,8 +17,9 @@ import {
   S_ov,
 } from '../textVariables/symbols';
 import { CO2 } from '../textVariables/chemicalText';
+import { ICalcProps } from '../../../types/data-types';
 
-export default function WaterTreatmentCalculation() {
+export default function WaterTreatmentCalculation({ calcCount }: ICalcProps) {
   const { dryResidue, alkalinity } = waterData;
   const { requiredDryResidue, steamLosses, pressure } = boilerData;
 
@@ -41,6 +42,7 @@ export default function WaterTreatmentCalculation() {
     setHidden(true);
   }
 
+  useEffect(() => setHidden(true), [calcCount]);
   return (
     <div>
       <h2

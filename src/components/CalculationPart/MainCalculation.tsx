@@ -8,20 +8,21 @@ import DecarbonizesCalculation from './DecarbonizesCalculation/DecarbonizesCalcu
 import LightFilters from './FiltersCalculation/LightFilters/LightFilters';
 import Brighteners from './BrightenersCalculation/Brighteners';
 import Deaerators from './Deaerators/Deaerators';
+import { ICalcProps } from '../../types/data-types';
 
-export default function MainCalculation() {
+export default function MainCalculation({ calcCount }: ICalcProps) {
   return (
     <div className="main-calc-block">
-      <RecalculationWater />
-      <WaterTreatmentCalculation />
-      <WaterTreatmentScheme />
-      <SteamBalanceBoilers />
-      <NaCationsFiltersMain />
-      <HCationFilters />
-      <DecarbonizesCalculation />
-      <LightFilters />
-      <Brighteners />
-      <Deaerators />
+      <RecalculationWater calcCount={calcCount} />
+      <WaterTreatmentCalculation calcCount={calcCount} />
+      <WaterTreatmentScheme calcCount={calcCount} />
+      <SteamBalanceBoilers calcCount={calcCount} />
+      <NaCationsFiltersMain calcCount={calcCount} />
+      <HCationFilters calcCount={calcCount} />
+      <DecarbonizesCalculation calcCount={calcCount} />
+      <LightFilters calcCount={calcCount} />
+      <Brighteners calcCount={calcCount} />
+      <Deaerators calcCount={calcCount} />
     </div>
   );
 }

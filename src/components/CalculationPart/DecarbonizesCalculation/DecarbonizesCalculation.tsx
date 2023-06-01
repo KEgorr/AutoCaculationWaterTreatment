@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { ICalcProps } from '../../../types/data-types';
 import CO2Calculation from './CO2Calculation/CO2Calculation';
 import RashigCalculation from './RashigCalculation/RashigCalculation';
 
-export default function DecarbonizesCalculation() {
+export default function DecarbonizesCalculation({ calcCount }: ICalcProps) {
   const [isHidden, setHidden] = useState(true);
 
   function changeVisibility() {
@@ -13,6 +14,7 @@ export default function DecarbonizesCalculation() {
     setHidden(true);
   }
 
+  useEffect(() => setHidden(true), [calcCount]);
   return (
     <div>
       <h2

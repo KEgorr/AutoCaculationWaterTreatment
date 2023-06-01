@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { hCationFilter } from '../../../../modules/FiltersCalculation/CationsFiltersCalculation/CationsFiltersCalculation';
-import { FilterStage } from '../../../../types/data-types';
+import { FilterStage, ICalcProps } from '../../../../types/data-types';
 import HFilterChoosing from './HFilterChoosing';
 import RegenerationNumberHStage from './RegenerationNumberHStage';
 import TimesCalculationHFilter from './TimesCalculationHFilter';
 import VariousCostCalcHStage from './VariousCostHStage';
 
-export default function HCationFilters() {
+export default function HCationFilters({ calcCount }: ICalcProps) {
   const filters = hCationFilter.setValidFilters(FilterStage.HCationStage);
 
   const [isHidden, setHidden] = useState(true);
@@ -19,6 +19,7 @@ export default function HCationFilters() {
     setHidden(true);
   }
 
+  useEffect(() => setHidden(true), [calcCount]);
   return (
     <div>
       <h2

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BlockMath, InlineMath } from 'react-katex';
 import waterIonicComposition from '../../../modules/WaterIonicComposition/waterIonicComposition';
 import waterData from '../../../modules/Basic data/WaterData';
@@ -13,8 +13,9 @@ import {
   SiO3,
   SO4,
 } from '../textVariables/chemicalText';
+import { ICalcProps } from '../../../types/data-types';
 
-export default function RecalculationWater() {
+export default function RecalculationWater({ calcCount }: ICalcProps) {
   const equivalentFormula = `\\tag{1.1} Э^x = \\frac{M}{n},`;
   const CaEquivalentCalc = `Э^{${Ca2}} = \\frac{M}{n} = \\frac{40,08}{2} = 20,04, экв`;
   const Ca2Calc = `${Ca2} = \\frac{${
@@ -32,6 +33,8 @@ export default function RecalculationWater() {
     }
     setHidden(true);
   }
+
+  useEffect(() => setHidden(true), [calcCount]);
   return (
     <div>
       <h2

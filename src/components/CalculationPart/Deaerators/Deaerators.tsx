@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { InlineMath } from 'react-katex';
 import getDeaerators from '../../../modules/Deaerators/deaeratorsChosing';
 import steamBalanceBoiler from '../../../modules/SteamBalanceOfBoiler/steamBalanceOfBoiller';
+import { ICalcProps } from '../../../types/data-types';
 import { TChasDimension } from '../textVariables/dimensions';
 import DeaeratorsTable from './DeaeratorTable';
 
-export default function Deaerators() {
+export default function Deaerators({ calcCount }: ICalcProps) {
   const [isHidden, setHidden] = useState(true);
 
   function changeVisibility() {
@@ -19,6 +20,7 @@ export default function Deaerators() {
   const deaerator = getDeaerators(1);
   const performance = steamBalanceBoiler.getWTP();
 
+  useEffect(() => setHidden(true), [calcCount]);
   return (
     <div>
       <h2
