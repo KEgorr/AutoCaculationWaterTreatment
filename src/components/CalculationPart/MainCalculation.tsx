@@ -6,6 +6,7 @@ import NaCationsFiltersMain from './FiltersCalculation/NaCationsFilters/NaCation
 import HCationFilters from './FiltersCalculation/HCationsFilters/HCationsFilters';
 import DecarbonizesCalculation from './DecarbonizesCalculation/DecarbonizesCalculation';
 import LightFilters from './FiltersCalculation/LightFilters/LightFilters';
+import Brighteners from './BrightenersCalculation/Brighteners';
 
 export default function MainCalculation() {
   return (
@@ -18,6 +19,7 @@ export default function MainCalculation() {
       <HCationFilters />
       <DecarbonizesCalculation />
       <LightFilters />
+      <Brighteners />
     </div>
   );
 }

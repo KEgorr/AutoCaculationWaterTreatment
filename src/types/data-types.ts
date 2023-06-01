@@ -62,3 +62,33 @@ export const enum FilterStage {
   NaCationFirstStage,
   HCationStage,
 }
+
+export const enum BrightenersType {
+  liming = 'и',
+  coagulation = 'к',
+}
+
+export interface IBrightener {
+  id: number;
+  name: string;
+  performance: number;
+  diameter: number;
+  brightArea: number;
+  fullSize: number;
+  speedClogged: number;
+  speedBright: number;
+  brightHeight: number;
+  time: number;
+}
+
+export interface IValidBrightener extends IBrightener {
+  numberOfBrighteners: number;
+}
+
+export interface IBrightenersChoosingProps {
+  brightenersType: BrightenersType;
+}
+
+export interface IBrightenerTableProps {
+  brightener: IValidBrightener;
+}

@@ -18,3 +18,5 @@ export const H2SO4 = `H_{2}SO_{4}`;
 export const CO2_IV = `CO_{2}^{И.В}`;
 export const CO2_tab = `CO_{2}^{таб}`;
 export const CO2_ov = `CO_{2}^{О.В}`;
+export const MgOH2 = `Mg(OH)_2`;
+export const CaCO3 = `CaCO_3`;
