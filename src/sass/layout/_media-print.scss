@@ -1,6 +1,21 @@
 @media print {
   @page {
-    margin: 0;
+    size: A4;
+    margin-top: 10mm;
+  }
+
+  .boilers-table {
+    border: 1px solid #000 !important;
+    .boilers-table__td {
+      border: 1px solid #000 !important;
+    }
+    .boilers-table__th {
+      border: 1px solid #000 !important;
+    }
+  }
+
+  .content-hide {
+    display: block !important;
   }
 
   button {
@@ -8,10 +23,19 @@
   }
 
   .block-hidden {
-    max-height: 2000px !important;
+    max-height: 5000px !important;
   }
 
   .boilers-table__tbody > tr:not(.boiler_selected) {
     display: none;
+  }
+
+  .calc-block__table-container,
+  .calc-img__container {
+    page-break-inside: avoid;
+  }
+
+  .calc-block-tittle {
+    page-break-before: always;
   }
 }

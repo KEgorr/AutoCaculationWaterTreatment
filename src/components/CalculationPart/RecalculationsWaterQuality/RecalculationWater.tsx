@@ -25,13 +25,18 @@ export default function RecalculationWater({ calcCount }: ICalcProps) {
   const anionsSum = `\\tag{1.3} \\sum Ан = ${HCO3} + ${SO4} + ${Cl} + ${NO3} + ${SiO3}`;
 
   const [isHidden, setHidden] = useState(true);
+  const [isHide, setHide] = useState('calc-block__content content-hide');
 
   function changeVisibility() {
     if (isHidden) {
       setHidden(false);
+      setHide('calc-block__content');
       return;
     }
     setHidden(true);
+    setTimeout(() => {
+      setHide('calc-block__content content-hide');
+    }, 500);
   }
 
   useEffect(() => setHidden(true), [calcCount]);
@@ -48,7 +53,7 @@ export default function RecalculationWater({ calcCount }: ICalcProps) {
         1 Перерасчет показателей качества исходной воды
       </h2>
       <div className={isHidden ? 'calc-block block-hidden' : 'calc-block'}>
-        <div className="calc-block__content">
+        <div className={isHide}>
           <p>
             Для перерасчета показателей качества воды из мг/кг в мг·экв/кг
             используется понятие «эквивалент» вещества — это такое количество

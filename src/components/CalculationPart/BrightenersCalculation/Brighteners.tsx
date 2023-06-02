@@ -8,13 +8,18 @@ import { BrightenersType, ICalcProps } from '../../../types/data-types';
 export default function Brighteners({ calcCount }: ICalcProps) {
   const [isHidden, setHidden] = useState(true);
   const { carbonateHardness } = waterData;
+  const [isHide, setHide] = useState('calc-block__content content-hide');
 
   function changeVisibility() {
     if (isHidden) {
       setHidden(false);
+      setHide('calc-block__content');
       return;
     }
     setHidden(true);
+    setTimeout(() => {
+      setHide('calc-block__content content-hide');
+    }, 500);
   }
 
   useEffect(() => setHidden(true), [calcCount]);
@@ -37,7 +42,7 @@ export default function Brighteners({ calcCount }: ICalcProps) {
             : 'calc-block calc-block_cation-filters'
         }
       >
-        <div className="calc-block__content">
+        <div className={isHide}>
           <p>
             Основные расчетные параметры осветлителей зависят от таких факторов:
             свойств исходной воды, методов ее обработки, температуры подогрева

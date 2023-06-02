@@ -5,13 +5,18 @@ import RashigCalculation from './RashigCalculation/RashigCalculation';
 
 export default function DecarbonizesCalculation({ calcCount }: ICalcProps) {
   const [isHidden, setHidden] = useState(true);
+  const [isHide, setHide] = useState('calc-block__content content-hide');
 
   function changeVisibility() {
     if (isHidden) {
       setHidden(false);
+      setHide('calc-block__content');
       return;
     }
     setHidden(true);
+    setTimeout(() => {
+      setHide('calc-block__content content-hide');
+    }, 500);
   }
 
   useEffect(() => setHidden(true), [calcCount]);
@@ -34,7 +39,7 @@ export default function DecarbonizesCalculation({ calcCount }: ICalcProps) {
             : 'calc-block calc-block_cation-filters'
         }
       >
-        <div className="calc-block__content">
+        <div className={isHide}>
           <p>
             Декарбонизаторы – аппараты скрубберного типа, служащие для удаления
             свободной углекислоты, выделяющейся в процессах

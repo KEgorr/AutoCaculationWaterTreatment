@@ -7,13 +7,18 @@ export default function LightFilters({ calcCount }: ICalcProps) {
   const filters = lightFilters.getFilter(3);
 
   const [isHidden, setHidden] = useState(true);
+  const [isHide, setHide] = useState('calc-block__content content-hide');
 
   function changeVisibility() {
     if (isHidden) {
       setHidden(false);
+      setHide('calc-block__content');
       return;
     }
     setHidden(true);
+    setTimeout(() => {
+      setHide('calc-block__content content-hide');
+    }, 500);
   }
 
   useEffect(() => setHidden(true), [calcCount]);
@@ -30,7 +35,7 @@ export default function LightFilters({ calcCount }: ICalcProps) {
         8 Выбор и расчет осветительных фильтров
       </h2>
       <div className={isHidden ? 'calc-block block-hidden' : 'calc-block'}>
-        <div className="calc-block__content">
+        <div className={isHide}>
           <LightFiltersChoosing filters={filters} />
         </div>
       </div>

@@ -33,13 +33,18 @@ export default function WaterTreatmentCalculation({ calcCount }: ICalcProps) {
   const decompositionNa2CO3CalcWithB = `${CO2} = 22 * ${alkalinity} * 0.5 * (0.4 + ${waterTreatmentCalculation.getDecompositionNa2CO3()}) = ${waterTreatmentCalculation.getCarbonDioxideConcentrationWithB()} ${mgKgDimension}`;
 
   const [isHidden, setHidden] = useState(true);
+  const [isHide, setHide] = useState('calc-block__content content-hide');
 
   function changeVisibility() {
     if (isHidden) {
       setHidden(false);
+      setHide('calc-block__content');
       return;
     }
     setHidden(true);
+    setTimeout(() => {
+      setHide('calc-block__content content-hide');
+    }, 500);
   }
 
   useEffect(() => setHidden(true), [calcCount]);
@@ -56,7 +61,7 @@ export default function WaterTreatmentCalculation({ calcCount }: ICalcProps) {
         2 Расчетный метод выбора схем обработки воды
       </h2>
       <div className={isHidden ? 'calc-block block-hidden' : 'calc-block'}>
-        <div className="calc-block__content">
+        <div className={isHide}>
           <p>
             Основными критериями выбора схем обработки воды для паровых котлов
             являются: величина продувки котлов, относительная щелочность
