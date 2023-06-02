@@ -120,7 +120,7 @@ class Brighteners {
     brightenerType: BrightenersType,
     number: number
   ): IValidBrightener {
-    const performance = this.getBrightenerPerformance(brightenerType);
+    const performance = this.getBrightenerPerformance(brightenerType) / number;
     const validBrightener = brightenersData.find(
       (brightener) => brightener.performance > performance
     );
