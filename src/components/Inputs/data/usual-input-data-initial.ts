@@ -1,4 +1,6 @@
-const waterDataInitial = [
+import { IWaterData } from '../../../types/data-types';
+
+const waterDataInitial: IWaterData[] = [
   //! Только для теста изменить на ''
   {
     id: 1,

@@ -1,10 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { IBoilerData } from '../../types/data-types';
 import BoilersTable from './boilerInput/BoilerTable';
 import waterDataInitial from './data/usual-input-data-initial';
 import WaterInputs from './waterInput/WaterInputs';
 import newWaterData from '../../modules/Basic data/WaterData';
 import boilerData from '../../modules/Basic data/BoilerData';
+import {
+  changeWaterDataByQueryString,
+  changeQueryStringWaterData,
+  setQueryStringBoiler,
+} from '../../modules/DataByQueryString/DataByQueryString';
 
 interface IMainInputProps {
   showCalculations: () => void;
@@ -14,6 +20,7 @@ export default function MainInput({ showCalculations }: IMainInputProps) {
   const [waterData, setWaterData] = useState(waterDataInitial);
   const [chosenBoiler, setChosenBoiler] = useState<IBoilerData>();
   const [isBoilerChecked, setBoilerChecked] = useState(true);
+  const [waterDataSearchParams] = useSearchParams();
 
   function update(id: number, value: string) {
     setWaterData(
@@ -27,13 +34,23 @@ export default function MainInput({ showCalculations }: IMainInputProps) {
         return data;
       })
     );
+    changeQueryStringWaterData(waterData);
   }
+
+  useEffect(() => {
+    const newData = changeWaterDataByQueryString(waterData);
+    setWaterData(newData);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [waterDataSearchParams]);
+
   function onChangeBoiler(boiler: IBoilerData) {
     setChosenBoiler(boiler);
     setBoilerChecked(true);
+    setQueryStringBoiler(boiler);
   }
 
   function removeBoiler() {
+    setQueryStringBoiler(chosenBoiler, true);
     setChosenBoiler(undefined);
   }
 

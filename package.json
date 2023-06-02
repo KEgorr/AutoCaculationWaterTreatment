@@ -61,6 +61,7 @@
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-katex": "^3.0.1"
+    "react-katex": "^3.0.1",
+    "react-router-dom": "^6.11.2"
   }
 }

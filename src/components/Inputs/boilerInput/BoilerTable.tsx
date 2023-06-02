@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { addBoilerFromQueryString } from '../../../modules/DataByQueryString/DataByQueryString';
 import { IBoilerData } from '../../../types/data-types';
 import { IBoilerTableProps } from '../../../types/props-types';
 import AddBoiler from './AddBoiler';
@@ -33,6 +34,14 @@ export default function BoilersTable({
     }
     setAdding(false);
   }
+
+  useEffect(() => {
+    const newBoiler = addBoilerFromQueryString();
+    if (newBoiler) {
+      handleAddBoiler(newBoiler);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   function handleChangeBoiler(changedBoiler: IBoilerData | undefined) {
     if (changedBoiler) {
