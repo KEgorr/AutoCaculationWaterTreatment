@@ -98,35 +98,35 @@ export const separationTypes = [
 export const boilerDataInitial = {
   id: 0,
   name: {
-    value: 'Котел',
+    value: '',
     isValid: true,
   },
   performance: {
-    value: '5',
+    value: '',
     isValid: true,
   },
   numberOfBoilers: {
-    value: '2',
+    value: '',
     isValid: true,
   },
   pressure: {
-    value: '8',
+    value: '',
     isValid: true,
   },
   steamLosses: {
-    value: '0.5',
+    value: '',
     isValid: true,
   },
   requiredDryResidue: {
-    value: '4000',
+    value: '',
     isValid: true,
   },
   boilerType: {
-    value: 'Газотрубный или Жаротрубный',
+    value: '',
     isValid: true,
   },
   separationType: {
-    value: 'Механические внутрибарабанные сепарационные устройства',
+    value: '',
     isValid: true,
   },
 };
